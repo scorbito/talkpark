@@ -1,40 +1,58 @@
-import { CommunityScreen } from "@/components/domain/CommunityScreen";
-import { listAcceptedFriendsFromDb, listReviewsFromDb } from "@/lib/supabase/queries";
-import { listMatchPostsFromDb } from "@/lib/supabase/query-parts/matchPosts";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { unstable_noStore as noStore } from "next/cache";
+import { HomeScreen } from "@/components/domain/HomeScreen";
+import { listGamesFromDb, listNoticesFromDb, listStandingsFromDb } from "@/lib/supabase/queries";
+import { countMatchPostsByGameIds } from "@/lib/supabase/query-parts/matchPosts";
+import { getCurrentUserSeasonLevel } from "@/lib/season-level/queries";
+import type { Game } from "@/lib/types/domain";
 
-// revalidate 대신 force-dynamic — 친구 목록은 사용자별로 다르므로 캐시 공유 금지
 export const dynamic = "force-dynamic";
 
-type CommunityPageProps = {
-  searchParams?: { tab?: string; gameId?: string; date?: string };
-};
+const fmt = (d: Date) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
-export default async function CommunityPage({ searchParams }: CommunityPageProps) {
-  const tab = searchParams?.tab === "match-talk" ? "match-talk" : "review";
-  const matchTalkGameId = searchParams?.gameId;
-  const matchTalkDate = searchParams?.date;
+function toDomainGame(game: Awaited<ReturnType<typeof listGamesFromDb>>[number]): Game {
+  return {
+    id: game.id,
+    date: game.date.replaceAll("-", "."),
+    time: game.time ?? "",
+    stadium: game.stadium,
+    homeTeamId: game.homeTeamId,
+    awayTeamId: game.awayTeamId,
+    homeScore: game.homeScore,
+    awayScore: game.awayScore,
+    status: game.status === "finished" || game.status === "canceled" ? game.status : "scheduled"
+  };
+}
 
-  const ssr = createSupabaseServerClient();
-  const { data: authData } = await ssr.auth.getUser();
-  const currentUserId = authData.user?.id ?? null;
+export default async function CommunityPage() {
+  noStore();
 
-  const [dbReviews, friends, initialMatchPosts] = await Promise.all([
-    listReviewsFromDb({ limit: 20 }).catch(() => []),
-    listAcceptedFriendsFromDb().catch(() => []),
-    listMatchPostsFromDb({ limit: 20, gameId: matchTalkGameId, date: matchTalkDate }).catch(() => [])
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+  const offsetToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  const monday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + offsetToMonday);
+  const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6);
+
+  const [standings, weekGames, notices, seasonLevel] = await Promise.all([
+    listStandingsFromDb(today.getFullYear()).catch(() => []),
+    listGamesFromDb({ from: fmt(monday), to: fmt(sunday) })
+      .then((items) => items.map(toDomainGame))
+      .catch(() => []),
+    listNoticesFromDb().catch(() => []),
+    getCurrentUserSeasonLevel().catch(() => null)
   ]);
-  const friendIds = friends.map((f) => f.userId);
+  const latestNoticeAt = notices[0]?.publishedAt ?? null;
+
+  const matchPostCounts = await countMatchPostsByGameIds(weekGames.map((g) => g.id)).catch(() => ({}));
 
   return (
-    <CommunityScreen
-      dbReviews={dbReviews}
-      friendIds={friendIds}
-      initialMatchPosts={initialMatchPosts}
-      currentUserId={currentUserId}
-      initialTab={tab}
-      initialMatchTalkGameId={matchTalkGameId}
-      initialMatchTalkDate={matchTalkDate}
+    <HomeScreen
+      standings={standings}
+      weekGames={weekGames}
+      weekStart={fmt(monday)}
+      latestNoticeAt={latestNoticeAt}
+      matchPostCounts={matchPostCounts}
+      seasonLevel={seasonLevel}
     />
   );
 }

@@ -283,7 +283,8 @@ export function HomeScreen({ weekGames = [], weekStart, latestNoticeAt = null, m
 
   return (
     <AppShell
-      activeTab="home"
+      activeTab="community"
+      title="직관"
       theme="dark"
       showBeta
       headerAction={

@@ -154,7 +154,7 @@ export function CommunityScreen({
   }, [isDbMode, hasMore, loadingMore, feed]);
 
   return (
-    <AppShell activeTab="community" title="커뮤니티" theme="dark" hideHeader>
+    <AppShell activeTab="home" title="경기톡" theme="dark" hideHeader>
       <div className="community-tabs" role="tablist">
         <button
           type="button"

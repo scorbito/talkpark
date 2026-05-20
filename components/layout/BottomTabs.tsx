@@ -14,7 +14,7 @@ type BottomTabsProps = {
 const tabs = [
   { id: "home", label: "홈", icon: Home, href: "/" },
   { id: "schedule", label: "일정", icon: CalendarDays, href: "/schedule" },
-  { id: "community", label: "커뮤니티", icon: MessageCircle, href: "/community" },
+  { id: "community", label: "직관", icon: MessageCircle, href: "/community" },
   { id: "my", label: "마이", icon: UserRound, href: "/my" }
 ] as const;
 
