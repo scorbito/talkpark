@@ -1,0 +1,335 @@
+.match-talk-head {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.match-talk-filter-controls {
+  min-width: 0;
+}
+
+.match-talk-filter-controls .chip {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.match-talk-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.match-talk-timeline-game {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+.match-talk-timeline-game::before {
+  background: rgba(148, 163, 184, 0.24);
+  bottom: 0;
+  content: "";
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.match-talk-timeline-game-title {
+  color: #f8fafc;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0 4px;
+}
+
+.match-talk-timeline-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.match-talk-timeline-status {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  color: #dbeafe;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.25;
+  margin: 0 0 0 -28px;
+  max-width: fit-content;
+  padding: 7px 12px;
+}
+
+.match-talk-timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-talk-timeline-item {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 14px minmax(0, 1fr);
+  position: relative;
+}
+
+.match-talk-timeline-dot {
+  background: #ff6a2b;
+  border: 3px solid #091628;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 106, 43, 0.38);
+  height: 12px;
+  margin-left: -23px;
+  margin-top: 20px;
+  position: relative;
+  width: 12px;
+  z-index: 1;
+}
+
+.match-talk-timeline-card {
+  background: rgba(15, 28, 49, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+  padding: 14px;
+}
+
+.match-talk-timeline-item-header {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.match-talk-timeline-author {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+  min-width: 0;
+}
+
+.match-talk-timeline-avatar {
+  border-radius: 999px;
+  flex: 0 0 auto;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  width: 30px;
+}
+
+.match-talk-timeline-avatar-initial {
+  align-items: center;
+  background: rgba(148, 163, 184, 0.14);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  color: #f8fafc;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 900;
+  justify-content: center;
+}
+
+.match-talk-timeline-name-row {
+  align-items: center;
+  color: #f8fafc;
+  display: flex;
+  gap: 5px;
+  min-width: 0;
+}
+
+.match-talk-timeline-name-row strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.25;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.match-talk-timeline-author span {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.match-talk-timeline-meta {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.match-talk-timeline-body {
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.55;
+  margin: 12px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.match-talk-timeline-photo-badge {
+  align-items: center;
+  background: rgba(255, 106, 43, 0.12);
+  border: 1px solid rgba(255, 106, 43, 0.28);
+  border-radius: 999px;
+  color: #ffb088;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 900;
+  gap: 5px;
+  line-height: 1;
+  margin-top: 10px;
+  padding: 7px 10px;
+}
+
+/* 타임라인 사진 썸네일 — 작은 카드로 표시, 탭하면 lightbox로 확대 */
+.match-talk-timeline-photo-thumb {
+  background: #1a2640;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  height: 96px;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 0;
+  transition: filter 0.18s ease, transform 0.06s ease;
+  width: 128px;
+}
+
+.match-talk-timeline-photo-thumb:hover {
+  filter: brightness(1.05);
+}
+
+.match-talk-timeline-photo-thumb:active {
+  transform: scale(0.98);
+}
+
+.match-talk-timeline-actions {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.match-talk-timeline-reactions {
+  align-items: center;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.match-talk-timeline-emotion {
+  align-items: center;
+  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 16px;
+  height: 28px;
+  justify-content: center;
+  line-height: 1;
+  min-width: 28px;
+  padding: 0 7px;
+}
+
+.match-talk-timeline-action,
+.match-talk-timeline-delete {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: #94a3b8;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 800;
+  gap: 4px;
+  height: 28px;
+  justify-content: center;
+  line-height: 1;
+  min-width: 28px;
+  padding: 0 6px;
+}
+
+.match-talk-timeline-action svg,
+.match-talk-timeline-delete svg {
+  height: 15px;
+  width: 15px;
+}
+
+.match-talk-timeline-action.active {
+  color: #ff6a2b;
+}
+
+.match-talk-timeline-delete {
+  border-radius: 999px;
+  color: #64748b;
+  padding: 0;
+}
+
+.match-talk-timeline-delete:hover {
+  background: rgba(255, 106, 43, 0.1);
+  color: #ff8b5a;
+}
+
+.match-talk-timeline-confirm-backdrop {
+  align-items: center;
+  background: rgba(2, 8, 23, 0.62);
+  inset: 0;
+  padding: 20px;
+  position: fixed;
+  z-index: 2000;
+}
+
+.match-talk-timeline-confirm-panel {
+  border-radius: 22px;
+  max-height: none;
+  max-width: 340px;
+  width: min(340px, 100%);
+}
+
+.match-talk-timeline-confirm-panel .modal-body {
+  overflow: visible;
+}
+
+@media (max-width: 420px) {
+  .match-talk-head {
+    align-items: stretch;
+  }
+
+  .match-talk-filter-controls {
+    width: 100%;
+  }
+
+  .match-talk-filter-controls .chip {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .match-talk-timeline-section {
+    margin-left: 8px;
+    padding-left: 13px;
+  }
+
+  .match-talk-timeline-game::before {
+    left: 8px;
+  }
+
+  .match-talk-timeline-card {
+    padding: 13px;
+  }
+
+  .match-talk-timeline-name-row strong {
+    max-width: 110px;
+  }
+}

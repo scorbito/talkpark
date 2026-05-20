@@ -1,0 +1,338 @@
+﻿/* ============================================================
+ * Share modal — dark theme
+ * ============================================================ */
+.phone-frame-dark .share-modal-panel {
+  background: #0d1a30;
+  color: var(--hd-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  min-height: 92%;
+  max-height: 98%;
+}
+
+.phone-frame-dark .share-modal-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .share-modal-panel .modal-header strong {
+  color: var(--hd-text-primary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.phone-frame-dark .share-modal-panel .modal-close {
+  color: var(--hd-text-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.phone-frame-dark .share-modal-panel .modal-body {
+  background: #0d1a30;
+  scrollbar-width: none;
+}
+
+.phone-frame-dark .share-modal-panel .modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-frame-dark .share-modal-panel .share-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Share card preview — 픽셀 고정 크기 (270x480, 9:16) */
+/* html2canvas는 aspect-ratio / gap을 제대로 못 다뤄서 명시적 width/height + margin 사용.
+   미리보기 = 캡처 결과 1:1 매칭. 캡처 시 scale 1.5로 405x720 PNG 생성. */
+.phone-frame-dark .share-modal-panel .share-card-preview {
+  position: relative;
+  width: 270px;
+  height: 480px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a2640;
+  flex-shrink: 0;
+  align-self: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.phone-frame-dark .share-modal-panel .share-card-preview > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.phone-frame-dark .share-modal-panel .share-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 26px 18px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.phone-frame-dark .share-modal-panel .share-card-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.2px;
+}
+
+.phone-frame-dark .share-modal-panel .share-card-rate {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.phone-frame-dark .share-modal-panel .share-card-stats {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.phone-frame-dark .share-modal-panel .share-card-team-row {
+  margin: 4px 0 0;
+}
+
+.phone-frame-dark .share-modal-panel .share-card-team-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.phone-frame-dark .share-modal-panel .share-card-team-pill .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+.phone-frame-dark .share-modal-panel .share-card-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 0;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--hd-accent-orange);
+  letter-spacing: -0.2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.phone-frame-dark .share-modal-panel .share-card-ball {
+  display: inline-block;
+}
+
+/* Template picker — 작은 카드 3개를 독립적으로 배치. 공유카드 비율과 무관. */
+.phone-frame-dark .share-modal-panel .template-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.phone-frame-dark .share-modal-panel .template-picker button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 6px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--hd-border-soft);
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--hd-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.06s ease;
+}
+
+.phone-frame-dark .share-modal-panel .template-picker button:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.phone-frame-dark .share-modal-panel .template-picker button:active {
+  transform: scale(0.97);
+}
+
+.phone-frame-dark .share-modal-panel .template-picker .template-thumb {
+  position: relative;
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.phone-frame-dark .share-modal-panel .template-picker .template-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone-frame-dark .share-modal-panel .template-picker .template-check {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.phone-frame-dark .share-modal-panel .template-picker button > span:not(.template-thumb) {
+  color: var(--hd-text-secondary);
+  font-size: 11.5px;
+}
+
+.phone-frame-dark .share-modal-panel .template-picker .template-active {
+  border-color: var(--hd-accent-orange);
+  background: rgba(255, 106, 43, 0.08);
+}
+
+.phone-frame-dark .share-modal-panel .template-picker .template-active > span:not(.template-thumb) {
+  color: var(--hd-accent-orange);
+}
+
+/* Share actions — 1순위 공유하기(주황 큰 버튼), 2순위 복사(작은 보조) */
+.phone-frame-dark .share-modal-panel .share-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phone-frame-dark .share-modal-panel .share-actions button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: filter 0.18s ease, background 0.18s ease, transform 0.06s ease;
+}
+
+.phone-frame-dark .share-modal-panel .share-actions button svg {
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .share-modal-panel .share-action-primary {
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  border: 0;
+  box-shadow: 0 8px 22px rgba(255, 106, 43, 0.28);
+}
+
+.phone-frame-dark .share-modal-panel .share-action-primary:hover {
+  filter: brightness(1.06);
+}
+
+.phone-frame-dark .share-modal-panel .share-action-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .share-modal-panel .share-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.phone-frame-dark .share-modal-panel .share-actions button:active {
+  transform: scale(0.98);
+}
+
+/* Status / help text */
+.phone-frame-dark .share-modal-panel .inline-success {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(36, 194, 106, 0.12);
+  border: 1px solid rgba(36, 194, 106, 0.4);
+  color: var(--hd-success);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.phone-frame-dark .share-modal-panel .share-help {
+  margin: 4px 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--hd-text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.phone-frame-dark .share-modal-panel .share-help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--hd-text-muted);
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .detail-topbar > span {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

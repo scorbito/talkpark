@@ -1,0 +1,470 @@
+﻿/* ============================================================
+ * My page — dark theme
+ * ============================================================ */
+.phone-frame-dark .ui-card {
+  margin-top: 0;
+  background: var(--hd-bg-card);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 16px;
+  padding: 18px 16px;
+  color: var(--hd-text-primary);
+  box-shadow: var(--hd-shadow-card);
+}
+
+/* Profile hero card */
+.phone-frame-dark .profile-card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 18px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.phone-frame-dark .profile-card-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/mypagemyinfobg.png");
+  background-size: auto 100%;
+  background-position: right center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.phone-frame-dark .profile-card > *:not(.profile-card-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.phone-frame-dark .profile-card .profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  margin-bottom: 8px; /* 자기소개와의 간격 (profile-bio margin-top 6px와 합쳐 ~14px) */
+}
+
+/* 닉네임 + 팀 이름 영역이 가운데를 차지해야 편집 아이콘 버튼이 우측 끝으로 밀림 */
+.phone-frame-dark .profile-card .profile-hero > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 프로필 편집 미니 버튼 — 프로필 사진/닉네임 라인 우측 끝에 작은 오렌지 pill.
+   기존 카드 하단의 큰 "프로필 편집" 버튼 디자인을 축소판으로 재현.
+   profile-ticket.css의 .profile-card button { width: 100%; height: 42px } 글로벌
+   리셋을 명시적으로 덮어써야 함 — width/height/margin 모두 강제 지정. */
+.phone-frame-dark .profile-card .profile-edit-mini-btn {
+  flex: 0 0 auto;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  background: var(--hd-accent-orange);
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 106, 43, 0.32);
+  transition: filter 0.18s ease, transform 0.08s ease;
+  white-space: nowrap;
+}
+
+.phone-frame-dark .profile-card .profile-edit-mini-btn:hover {
+  filter: brightness(1.06);
+}
+
+.phone-frame-dark .profile-card .profile-edit-mini-btn:active {
+  transform: scale(0.96);
+}
+
+.phone-frame-dark .profile-card .profile-hero .team-badge-lg {
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+}
+
+.phone-frame-dark .profile-card .profile-hero-avatar {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1a2640;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .profile-card .profile-hero h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.phone-frame-dark .profile-card .profile-hero p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--hd-text-secondary);
+  font-weight: 600;
+}
+
+/* 내 팀 라인 — 텍스트 + 팀명 + 팀 배지 inline 정렬.
+   <p> 대신 <span>으로 변경(텍스트 baseline 정렬 영향 차단)하고
+   텍스트와 배지를 각각 별도 자식으로 두어 flex center가 정확히 동작하도록. */
+.phone-frame-dark .profile-card .profile-hero-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0 0;
+}
+
+.phone-frame-dark .profile-card .profile-hero-team .team-badge-wrap,
+.phone-frame-dark .profile-card .profile-hero-team .team-badge,
+.phone-frame-dark .profile-card .profile-hero-team .team-badge-initial {
+  margin: 0;
+}
+
+.phone-frame-dark .profile-card .profile-hero-team-text {
+  font-size: 12px;
+  color: var(--hd-text-secondary);
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* 프로필 보조 텍스트 옆에서는 TeamBadge sm보다 살짝 작게 사용. */
+.phone-frame-dark .profile-card .profile-hero-team .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .profile-card .profile-bio {
+  margin: 6px 14px 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(247, 249, 252, 0.85);
+  text-align: center;
+  word-break: break-word;
+}
+
+.phone-frame-dark .profile-card .profile-bio-empty {
+  display: block;
+  margin: 12px auto 0;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(247, 249, 252, 0.55);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.phone-frame-dark .profile-card .profile-bio-empty:hover {
+  border-color: rgba(255, 106, 43, 0.55);
+  color: var(--hd-accent-orange);
+}
+
+.phone-frame-dark .profile-card .profile-rate {
+  display: block;
+  margin: 14px auto 0;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .profile-card .profile-record {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--hd-text-secondary);
+  font-weight: 600;
+}
+
+/* 승률 숫자 아래 통계 요약 — 홈 hd-hero-summary와 동일 형식.
+   카드가 align-items: stretch라 flex container가 자동으로 가로 채움. */
+.phone-frame-dark .profile-card .profile-record-summary {
+  margin: 8px auto 0;
+  justify-content: center;
+}
+
+.phone-frame-dark .profile-card .profile-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.phone-frame-dark .profile-card .profile-stat-grid > span {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  min-width: 0;
+  padding: 10px 4px;
+}
+
+.phone-frame-dark .profile-card .profile-stat-grid em,
+.phone-frame-dark .profile-card .profile-stat-grid i {
+  color: rgba(247, 249, 252, 0.58);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.phone-frame-dark .profile-card .profile-stat-grid b {
+  color: var(--hd-text-primary);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+.phone-frame-dark .profile-card .profile-edit-btn {
+  margin-top: 18px;
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 106, 43, 0.28);
+}
+
+.phone-frame-dark .profile-card .profile-edit-btn:hover { filter: brightness(1.05); }
+
+/* 로그인 계정 칩 — 어떤 provider로 로그인했는지 표시 */
+.phone-frame-dark .profile-card .profile-account-chip {
+  margin: 12px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  color: var(--hd-text-secondary);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.phone-frame-dark .profile-card .profile-account-provider {
+  flex-shrink: 0;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.phone-frame-dark .profile-card .profile-account-provider-google {
+  background: rgba(66, 133, 244, 0.18);
+  color: #8ab4f8;
+  border: 1px solid rgba(66, 133, 244, 0.35);
+}
+
+.phone-frame-dark .profile-card .profile-account-provider-kakao {
+  background: rgba(254, 229, 0, 0.18);
+  color: #fde047;
+  border: 1px solid rgba(254, 229, 0, 0.4);
+}
+
+.phone-frame-dark .profile-card .profile-account-provider-email {
+  background: rgba(255, 106, 43, 0.16);
+  color: #ffb38a;
+  border: 1px solid rgba(255, 106, 43, 0.35);
+}
+
+.phone-frame-dark .profile-card .profile-account-id {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--hd-text-primary);
+  font-weight: 600;
+}
+
+/* Menu list */
+.phone-frame-dark .menu-list {
+  margin-top: 14px;
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.phone-frame-dark .menu-list a {
+  display: grid;
+  grid-template-columns: 22px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .menu-list a:last-child {
+  border-bottom: 0;
+}
+
+.phone-frame-dark .menu-list a:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.phone-frame-dark .menu-list a svg:first-child {
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .menu-list a strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .menu-list a .menu-count {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hd-text-muted);
+  min-width: 24px;
+  text-align: right;
+}
+
+.phone-frame-dark .menu-list a > svg:last-child {
+  color: var(--hd-text-muted);
+}
+
+/* ============================================================
+ * 설정 페이지 — 연동 계정 영역
+ * 마이 프로필 카드에서 옮겨온 provider chip. 상단 섹션 헤더 + 카드형 표시.
+ * ============================================================ */
+.phone-frame-dark .settings-account-section {
+  margin: 6px 0 14px;
+}
+
+.phone-frame-dark .settings-section-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 4px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(247, 249, 252, 0.55);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.phone-frame-dark .settings-account-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+}
+
+.phone-frame-dark .settings-account-main {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.phone-frame-dark .settings-account-provider {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.phone-frame-dark .settings-account-provider-google {
+  background: rgba(66, 133, 244, 0.18);
+  color: #8ab4f8;
+  border: 1px solid rgba(66, 133, 244, 0.35);
+}
+
+.phone-frame-dark .settings-account-provider-kakao {
+  background: rgba(254, 229, 0, 0.18);
+  color: #fde047;
+  border: 1px solid rgba(254, 229, 0, 0.4);
+}
+
+.phone-frame-dark .settings-account-provider-email {
+  background: rgba(255, 106, 43, 0.16);
+  color: #ffb38a;
+  border: 1px solid rgba(255, 106, 43, 0.35);
+}
+
+.phone-frame-dark .settings-account-provider-anonymous {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.phone-frame-dark .settings-account-id {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.phone-frame-dark .settings-account-logout {
+  align-items: center;
+  background: rgba(255, 90, 100, 0.08);
+  border: 1px solid rgba(255, 90, 100, 0.42);
+  border-radius: 999px;
+  color: var(--hd-danger);
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 850;
+  gap: 4px;
+  height: 30px;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.phone-frame-dark .settings-account-logout:hover {
+  background: rgba(255, 90, 100, 0.14);
+}

@@ -1,0 +1,279 @@
+﻿/* ============================================================
+ * Review write modal — dark theme
+ * ============================================================ */
+.phone-frame-dark .review-modal-panel {
+  background: #0d1a30;
+  color: var(--hd-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  min-height: 92%;
+  max-height: 96%;
+}
+
+.phone-frame-dark .review-modal-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .review-modal-panel .modal-header strong {
+  color: var(--hd-text-primary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.phone-frame-dark .review-modal-panel .modal-close {
+  color: var(--hd-text-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.phone-frame-dark .review-modal-panel .modal-body {
+  background: #0d1a30;
+  scrollbar-width: none;
+}
+
+.phone-frame-dark .review-modal-panel .modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-frame-dark .review-modal-panel .form-stack {
+  gap: 16px;
+  grid-template-rows: auto auto minmax(240px, 1fr) auto auto;
+}
+
+/* Photo strip */
+.phone-frame-dark .review-modal-panel .photo-strip-hint {
+  margin: 0 0 -6px;
+  color: var(--hd-text-muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.phone-frame-dark .review-modal-panel .photo-strip {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+}
+
+.phone-frame-dark .review-modal-panel .photo-strip .photo-preview-button {
+  width: 92px;
+  height: 92px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a2640;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .review-modal-panel .photo-strip .photo-preview-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone-frame-dark .review-modal-panel .photo-add-button {
+  width: 92px;
+  height: 92px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  color: var(--hd-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .review-modal-panel .photo-add-button:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--hd-text-primary);
+}
+
+/* Section labels */
+.phone-frame-dark .review-modal-panel .review-attendance-picker > span,
+.phone-frame-dark .review-modal-panel .review-body-label {
+  color: var(--hd-text-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-help {
+  color: var(--hd-text-muted);
+}
+
+/* Attendance pick cards */
+.phone-frame-dark .review-modal-panel .review-attendance-list {
+  gap: 8px;
+  padding-bottom: 4px;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-option {
+  flex: 0 0 112px;
+  min-height: 96px;
+  padding: 10px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid var(--hd-border-soft);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+  color: var(--hd-text-primary);
+  box-shadow: none;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-option-active {
+  border-color: var(--hd-accent-orange);
+  background: rgba(255, 106, 43, 0.08);
+  box-shadow: none;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-locked {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  opacity: 0.85;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-date {
+  color: var(--hd-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-teams {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-teams > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-teams .team-badge {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .review-modal-panel .review-attendance-teams b {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Textarea */
+.phone-frame-dark .review-modal-panel .textarea-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phone-frame-dark .review-modal-panel .textarea-field {
+  flex: 1;
+  min-height: 0;
+}
+
+.phone-frame-dark .review-modal-panel .textarea-field textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 240px;
+  height: 100%;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.phone-frame-dark .review-modal-panel .textarea-field textarea::placeholder {
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .review-modal-panel .textarea-field textarea:focus {
+  outline: none;
+  border-color: rgba(255, 106, 43, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Privacy options */
+.phone-frame-dark .review-modal-panel .privacy-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.phone-frame-dark .review-modal-panel .privacy-row button {
+  height: 38px;
+  padding: 0 6px;
+  border: 1px solid var(--hd-border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hd-text-secondary);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.phone-frame-dark .review-modal-panel .privacy-row button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .review-modal-panel .privacy-row .privacy-active {
+  background: var(--hd-accent-orange-soft);
+  border-color: rgba(255, 106, 43, 0.55);
+  color: var(--hd-accent-orange);
+}
+
+/* Submit button (Button component → .button.button-primary) */
+.phone-frame-dark .review-modal-panel .button.button-primary {
+  width: 100%;
+  height: 52px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 106, 43, 0.28);
+}
+
+.phone-frame-dark .review-modal-panel .button.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+

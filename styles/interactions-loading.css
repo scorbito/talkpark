@@ -1,0 +1,463 @@
+﻿/* ============================================================
+ * Tap feedback — 즉시 시각 반응으로 "눌렸음"을 알림 (Phase 9.5+)
+ * iOS Safari가 hover 안 되는 환경이라 :active 가 핵심
+ * ============================================================ */
+
+/* 모든 인터랙티브 요소: 탭 시 살짝 어두워짐 + 살짝 축소 */
+a:active,
+button:not(:disabled):active,
+.tab-item:active,
+.settings-row:active,
+.menu-list a:active,
+.notice-card:active,
+.help-feature:active,
+.faq-question:not(:disabled):active,
+.scope-option:not(:disabled):active {
+  transform: scale(0.97);
+  transition: transform 0.06s ease, filter 0.06s ease;
+}
+
+/* 다크 테마에서는 살짝 밝게 */
+.phone-frame-dark a:active,
+.phone-frame-dark button:not(:disabled):active,
+.phone-frame-dark .tab-item:active,
+.phone-frame-dark .settings-row:active,
+.phone-frame-dark .menu-list a:active,
+.phone-frame-dark .notice-card:active {
+  filter: brightness(1.15);
+}
+
+/* 라이트 테마에서는 살짝 어둡게 */
+.phone-frame:not(.phone-frame-dark) a:active,
+.phone-frame:not(.phone-frame-dark) button:not(:disabled):active {
+  filter: brightness(0.92);
+}
+
+/* 하단 탭은 active(현재 탭)와 :active(눌리는 순간) 동시 처리 */
+.bottom-tab .tab-item:active {
+  background: rgba(255, 106, 43, 0.1);
+}
+
+/* 모바일 브라우저의 회색 하이라이트 비활성화 — 우리 :active로 대체 */
+a, button, .tab-item, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS에서 탭 후 잔상으로 글자가 파랗게 변하는 현상 방지 */
+a {
+  -webkit-touch-callout: none;
+}
+
+/* 프리페치된 페이지로 즉시 전환되도록 router 동작 보강 — Link prefetch 가 자동 처리 */
+
+/* ============================================================
+ * Skeleton — loading.tsx 에서 사용하는 placeholder
+ * ============================================================ */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.phone-frame:not(.phone-frame-dark) .skeleton {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.phone-frame:not(.phone-frame-dark) .skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--hd-bg-card);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 14px;
+}
+
+.phone-frame:not(.phone-frame-dark) .skeleton-row {
+  background: #fff;
+  border-color: #edf0f4;
+}
+
+/* 스켈레톤 페이지 컨테이너 — page.tsx 와 동일한 padding */
+.skeleton-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Route transition hint — 하단 탭을 누르는 즉시 표시되는 작은 진행 상태 */
+.route-transition-hint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(78px + env(safe-area-inset-bottom));
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(6, 16, 30, 0.86);
+  color: #f7f9fc;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  transform: translateX(-50%);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.route-transition-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-top-color: #ff6a2b;
+  border-radius: 50%;
+  animation: initial-loader-spin 0.65s linear infinite;
+}
+
+/* ============================================================
+ * Initial loader — 첫 페이지 진입 시 (HTML 다운로드 ~ React 콘텐츠 렌더링 사이)
+ * 다크 풀스크린 + 통통 튀는 마스코트 + "오늘은 승요" 브랜드 + 펄스 도트
+ * 콘텐츠 렌더가 끝나면 페이드아웃 (HideInitialLoader가 data-loaded 토글).
+ * 8초 fallback — JS가 막혀도 무한 노출 방지.
+ * ============================================================ */
+.initial-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #06101e;
+  color: #f7f9fc;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+/* React 콘텐츠가 마운트되면 즉시 페이드아웃 */
+html[data-loaded="true"] .initial-loader {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* fallback — JS 실행 실패해도 8초 후엔 무조건 숨김 */
+.initial-loader {
+  animation: initial-loader-fallback-fade 0.45s ease 8s forwards;
+}
+
+/* 마스코트 — 통통 튀기 + 그림자가 같이 움직여 입체감 */
+.initial-loader-mascot-wrap {
+  position: relative;
+  width: 140px;
+  height: 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.initial-loader-mascot {
+  width: 140px;
+  height: 140px;
+  background-image: url('/assets/mascot-cheer.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 8px 24px rgba(255, 106, 43, 0.35));
+  animation: initial-loader-bounce 0.85s cubic-bezier(0.5, 0, 0.5, 1) infinite alternate;
+}
+
+.initial-loader-shadow {
+  position: absolute;
+  bottom: -2px;
+  width: 60px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255, 106, 43, 0.45) 0%, rgba(255, 106, 43, 0) 70%);
+  animation: initial-loader-shadow 0.85s cubic-bezier(0.5, 0, 0.5, 1) infinite alternate;
+}
+
+@keyframes initial-loader-bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes initial-loader-shadow {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(0.7);
+    opacity: 0.35;
+  }
+}
+
+.initial-loader-text {
+  font-size: 19px;
+  font-weight: 850;
+  letter-spacing: -0.4px;
+  color: #f7f9fc;
+}
+
+/* 펄스 도트 3개 — "처리 중"임을 알리는 시그널 */
+.initial-loader-dots {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.initial-loader-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff6a2b;
+  opacity: 0.3;
+  animation: initial-loader-pulse 1.1s ease-in-out infinite;
+}
+
+.initial-loader-dot:nth-child(2) { animation-delay: 0.18s; }
+.initial-loader-dot:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes initial-loader-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes initial-loader-fallback-fade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ============================================================
+ * 미인증 직관 카드 — 인증하기 칩 + 미인증 라벨 묶음
+ * ============================================================ */
+.phone-frame-dark .attendance-unverified-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-frame-dark .verify-action-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 106, 43, 0.16);
+  border: 1px solid rgba(255, 106, 43, 0.5);
+  color: var(--hd-accent-orange);
+  font-size: 10.5px;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: -0.2px;
+  transition: background 0.18s ease, transform 0.06s ease;
+}
+
+.phone-frame-dark .verify-action-chip:hover {
+  background: rgba(255, 106, 43, 0.24);
+}
+
+.phone-frame-dark .verify-action-chip:active {
+  transform: scale(0.95);
+}
+
+/* ============================================================
+ * VerifyTicketModal — 티켓 인증 모달
+ * ============================================================ */
+.verify-ticket {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.verify-ticket-label {
+  margin: 0;
+  padding: 8px 12px;
+  background: rgba(255, 106, 43, 0.1);
+  border: 1px solid rgba(255, 106, 43, 0.35);
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--hd-accent-orange);
+  text-align: center;
+}
+
+.verify-ticket-help {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--hd-text-secondary);
+  text-align: center;
+}
+
+.verify-ticket-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 28px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px dashed rgba(255, 106, 43, 0.45);
+  border-radius: 14px;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.verify-ticket-picker:hover {
+  background: rgba(255, 106, 43, 0.08);
+  border-color: rgba(255, 106, 43, 0.65);
+}
+
+.verify-ticket-picker.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.verify-ticket-picker input[type="file"] {
+  display: none;
+}
+
+.verify-ticket-preview {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.verify-ticket-clear {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  border: 0;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.verify-ticket-clear:hover { background: rgba(0, 0, 0, 0.85); }
+.verify-ticket-clear:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.verify-ticket-tips {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  font-size: 11.5px;
+  color: var(--hd-text-secondary);
+}
+
+.verify-ticket-tips > span {
+  display: block;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+  margin-bottom: 4px;
+}
+
+.verify-ticket-tips ul {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+/* ============================================================
+ * Pull-to-Refresh 인디케이터 + 헤더 새로고침 버튼 회전
+ * - 페이지 상단에서 손가락으로 당기면 아이콘이 회전하며 진행감 표시
+ * - 헤더 우측 새로고침 버튼 클릭 시 0.8초 회전
+ * ============================================================ */
+
+.ptr-indicator {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 106, 43, 0.92);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(255, 106, 43, 0.35);
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.ptr-icon {
+  transition: transform 0.05s linear;
+}
+
+.ptr-icon-spinning {
+  animation: ptr-spin 0.6s linear infinite;
+}
+
+@keyframes ptr-spin {
+  to { transform: rotate(360deg); }
+}
+

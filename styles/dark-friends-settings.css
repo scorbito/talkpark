@@ -1,0 +1,493 @@
+﻿/* ============================================================
+ * Friends page — dark theme
+ * ============================================================ */
+.phone-frame-dark .friend-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 12px;
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .friend-search:focus-within {
+  border-color: rgba(255, 106, 43, 0.5);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.phone-frame-dark .friend-search input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.phone-frame-dark .friend-search input::placeholder {
+  color: var(--hd-text-muted);
+}
+
+/* List + rows */
+.phone-frame-dark .friend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phone-frame-dark .friend-section-title {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .friend-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+
+.phone-frame-dark .friend-row-compact {
+  grid-template-columns: 36px 1fr auto;
+}
+
+.phone-frame-dark .friend-row .team-badge {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+}
+
+.phone-frame-dark .friend-row .friend-avatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .friend-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.phone-frame-dark .friend-row strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.phone-frame-dark .friend-row span {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .friend-row button {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--hd-accent-orange-soft);
+  border: 1px solid rgba(255, 106, 43, 0.55);
+  color: var(--hd-accent-orange);
+}
+
+.phone-frame-dark .friend-row button:hover {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+.phone-frame-dark .friend-row .friend-action-done {
+  background: rgba(36, 194, 106, 0.12);
+  border-color: rgba(36, 194, 106, 0.45);
+  color: var(--hd-success);
+  cursor: default;
+}
+
+.phone-frame-dark .friend-row .friend-action-remove {
+  width: 30px;
+  padding: 0;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .friend-row .friend-action-remove:hover:not(:disabled) {
+  background: rgba(255, 79, 99, 0.14);
+  border-color: rgba(255, 79, 99, 0.4);
+  color: #ff7b8c;
+}
+
+.phone-frame-dark .segmented-control .segment {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.phone-frame-dark .segmented-control .segment-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--hd-accent-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Empty state */
+.phone-frame-dark .empty-state-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 60px 20px 40px;
+}
+
+.phone-frame-dark .empty-state-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--hd-border-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .empty-state-large p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+  text-align: center;
+}
+
+/* ============================================================
+ * Settings page — dark theme
+ * ============================================================ */
+.phone-frame-dark .settings-list {
+  margin-top: 0;
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-frame-dark .settings-list .settings-row {
+  display: grid;
+  grid-template-columns: 22px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: left;
+  cursor: pointer;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .settings-list .settings-row:last-child {
+  border-bottom: 0;
+}
+
+.phone-frame-dark .settings-list .settings-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.phone-frame-dark .settings-list .settings-row > svg:first-child {
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .settings-list .settings-row > svg:last-child {
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .settings-list .settings-row strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .settings-list .settings-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+  min-width: 12px;
+  text-align: right;
+}
+
+/* Logout button */
+.phone-frame-dark .logout-button {
+  margin-top: 8px;
+  width: 100%;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 90, 100, 0.55);
+  border-radius: 12px;
+  color: var(--hd-danger);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phone-frame-dark .logout-button:hover {
+  background: rgba(255, 90, 100, 0.12);
+}
+
+/* ============================================================
+ * Profile edit modal — dark theme
+ * ============================================================ */
+.phone-frame-dark .profile-modal-panel {
+  background: #0d1a30;
+  color: var(--hd-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  /* 다른 모달(후기/직관 등)과 동일 패턴 — phone-frame을 거의 가득 채우고
+   * 콘텐츠가 넘치면 body 안에서 스크롤. */
+  min-height: 92%;
+  max-height: 96%;
+}
+
+.phone-frame-dark .profile-modal-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid var(--hd-border-soft);
+}
+
+.phone-frame-dark .profile-modal-panel .modal-header strong {
+  color: var(--hd-text-primary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.phone-frame-dark .profile-modal-panel .modal-close {
+  color: var(--hd-text-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.phone-frame-dark .profile-modal-panel .modal-body {
+  background: #0d1a30;
+  scrollbar-width: none;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 16px;
+}
+
+.phone-frame-dark .profile-modal-panel .modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-frame-dark .profile-modal-panel .form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100%;
+}
+
+/* Avatar upload */
+.phone-frame-dark .profile-avatar-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 4px;
+}
+
+.phone-frame-dark .profile-avatar-preview {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1a2640;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-frame-dark .profile-avatar-placeholder {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--hd-text-secondary);
+  text-transform: uppercase;
+}
+
+.phone-frame-dark .profile-avatar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 106, 43, 0.55);
+  background: var(--hd-accent-orange-soft);
+  color: var(--hd-accent-orange);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phone-frame-dark .profile-avatar-button:hover {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+.phone-frame-dark .profile-avatar-button.is-uploading {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.phone-frame-dark .profile-avatar-button input { display: none; }
+
+/* Field labels */
+.phone-frame-dark .profile-modal-panel .field-row,
+.phone-frame-dark .profile-modal-panel .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phone-frame-dark .profile-modal-panel .field-row > span,
+.phone-frame-dark .profile-modal-panel .field-group > span {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .profile-modal-panel .plain-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  color: var(--hd-text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.phone-frame-dark .profile-modal-panel .plain-input:focus {
+  outline: none;
+  border-color: rgba(255, 106, 43, 0.55);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Team grid */
+.phone-frame-dark .profile-modal-panel .profile-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.phone-frame-dark .profile-modal-panel .profile-team-choice {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--hd-border-soft);
+  border-radius: 10px;
+  color: var(--hd-text-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.phone-frame-dark .profile-modal-panel .profile-team-choice:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.phone-frame-dark .profile-modal-panel .profile-team-choice .team-badge {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.phone-frame-dark .profile-modal-panel .profile-team-choice strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .profile-modal-panel .profile-team-choice-active {
+  border-color: var(--hd-accent-orange);
+  background: rgba(255, 106, 43, 0.08);
+}
+
+.phone-frame-dark .profile-modal-panel .profile-team-check {
+  color: var(--hd-accent-orange);
+}
+
+/* Field hint */
+.phone-frame-dark .profile-modal-panel .field-hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+  line-height: 1.5;
+}
+
+/* Save button */
+.phone-frame-dark .profile-modal-panel .button.button-primary {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 106, 43, 0.28);
+  margin-top: 4px;
+}
+
+.phone-frame-dark .profile-modal-panel .button.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+

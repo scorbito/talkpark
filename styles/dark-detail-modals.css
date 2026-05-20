@@ -1,0 +1,377 @@
+﻿/* ============================================================
+ * Ticket collection — dark theme
+ * ============================================================ */
+/* Top utility rows (back-link, topbar, filters, search) — bring next content closer.
+   app-content gap is 18px; we tighten to about 6px after these rows. */
+.phone-frame-dark .back-link + *,
+.phone-frame-dark .detail-topbar + *,
+.phone-frame-dark .community-head + *,
+.phone-frame-dark .friend-search + *,
+.phone-frame-dark .sched-view-switch + *,
+.phone-frame-dark .segmented-control + *:not(.segmented-control) {
+  margin-top: -12px;
+}
+
+/* Review detail → comments section spacing tighter */
+.phone-frame-dark .review-detail + .comments-section {
+  margin-top: -10px;
+}
+
+/* Detail topbar → image: tighter than the generic -12px */
+.phone-frame-dark .detail-topbar + .review-detail {
+  margin-top: -18px;
+}
+
+.phone-frame-dark .ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.phone-frame-dark .ticket-empty {
+  padding: 28px 16px;
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.phone-frame-dark .ticket-empty p {
+  margin: 0 0 6px;
+  color: var(--hd-text-primary);
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.phone-frame-dark .ticket-empty span {
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.phone-frame-dark .ticket-card {
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 8px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  text-align: center;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .ticket-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.phone-frame-dark .ticket-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.phone-frame-dark .ticket-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 4px 2px;
+}
+
+.phone-frame-dark .ticket-date {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.phone-frame-dark .ticket-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+
+.phone-frame-dark .ticket-teams .team-badge {
+  width: 18px;
+  height: 18px;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .ticket-teams strong {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .ticket-teams .ticket-score {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  letter-spacing: -0.2px;
+}
+
+.phone-frame-dark .ticket-teams .ticket-vs {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--hd-text-muted);
+  padding: 0 2px;
+}
+
+.phone-frame-dark .ticket-stadium {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.phone-frame-dark .ticket-stadium svg {
+  flex-shrink: 0;
+}
+
+/* Zoom overlay */
+.phone-frame-dark .ticket-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.phone-frame-dark .ticket-zoom-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.phone-frame-dark .ticket-zoom-image-wrap {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.phone-frame-dark .ticket-zoom-caption {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ============================================================
+ * Review detail page — dark theme
+ * ============================================================ */
+.phone-frame-dark .detail-topbar {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 0;
+}
+
+.phone-frame-dark .detail-topbar > a,
+.phone-frame-dark .detail-topbar > .icon-button {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  color: var(--hd-text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.phone-frame-dark .detail-topbar > a:hover,
+.phone-frame-dark .detail-topbar > .icon-button:hover,
+.phone-frame-dark .detail-more > .icon-button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--hd-text-primary);
+}
+
+/* Topbar more (...) menu */
+.phone-frame-dark .detail-more {
+  position: relative;
+  justify-self: end;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .detail-more > .icon-button {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  color: var(--hd-text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.phone-frame-dark .detail-more-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 130px;
+  background: #122340;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 20;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+.phone-frame-dark .detail-more-menu button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  background: transparent;
+  border: 0;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.phone-frame-dark .detail-more-menu button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.phone-frame-dark .detail-more-menu .detail-more-danger {
+  color: var(--hd-danger);
+}
+
+.phone-frame-dark .detail-more-menu .detail-more-danger:hover {
+  background: rgba(255, 90, 100, 0.12);
+}
+
+/* Generic dark confirm modal */
+.phone-frame-dark .dark-confirm-panel {
+  background: #0d1a30;
+  color: var(--hd-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  max-width: 340px;
+}
+
+.phone-frame-dark .dark-confirm-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .dark-confirm-panel .modal-header strong {
+  color: var(--hd-text-primary);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.phone-frame-dark .dark-confirm-panel .modal-close {
+  color: var(--hd-text-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.phone-frame-dark .dark-confirm-panel .modal-body {
+  background: #0d1a30;
+}
+
+.phone-frame-dark .dark-confirm-panel .confirm-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phone-frame-dark .dark-confirm-panel .confirm-stack > p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .dark-confirm-panel .confirm-hint {
+  font-size: 11.5px;
+  color: var(--hd-text-muted);
+  font-weight: 600;
+}
+
+.phone-frame-dark .dark-confirm-panel .confirm-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.phone-frame-dark .dark-confirm-panel .confirm-cancel {
+  height: 42px;
+  border: 1px solid var(--hd-border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hd-text-primary);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.phone-frame-dark .dark-confirm-panel .button.button-primary {
+  height: 42px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--hd-danger);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phone-frame-dark .dark-confirm-panel .button.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+

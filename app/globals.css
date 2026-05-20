@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-pretendard: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --primary: #ff6b35;
+  --primary-strong: #ff3d15;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #6b7280;
+  --line: #eceef2;
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--font-pretendard);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* iOS Safari는 input/textarea/select의 font-size가 16px 미만일 때 포커스 시
+   화면을 자동 확대합니다. 모바일에서만 16px로 강제하여 줌인을 방지합니다.
+   다중 클래스 셀렉터(예: .phone-frame-dark .review-modal-panel .textarea-field textarea)가
+   기본 font-size를 13px 등으로 덮어쓰므로 !important 로 우선순위를 강제합니다. */
+@media (max-width: 480px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+.app-backdrop {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 107, 53, 0.12), transparent 28%),
+    linear-gradient(180deg, #fff 0%, #f5f6f8 100%);
+}
+
+.phone-frame {
+  position: relative;
+  width: min(100%, 414px);
+  height: min(896px, calc(100dvh - 48px));
+  min-height: min(640px, calc(100dvh - 48px));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+}
+
+/* 모바일 풀스크린 — phone-frame이 화면 100% 차지, 가장자리 둥글기/그림자 제거 */
+@media (max-width: 480px) {
+  .app-backdrop {
+    padding: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #06101e;
+  }
+  .phone-frame {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* iOS notch / 안드로이드 system bar 안전영역 */
+  .app-scroll {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+}
+
+/* 태블릿 — phone-frame을 화면 높이에 꽉 맞추고, 폰 비율(414:896) 유지 */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .app-backdrop {
+    padding: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .phone-frame {
+    width: auto;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    aspect-ratio: 414 / 896;
+    border-radius: 0;
+    border-top: 0;
+    border-bottom: 0;
+  }
+}
+
+.app-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: calc(92px + env(safe-area-inset-bottom));
+}
+
+.app-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.app-header {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-bottom: 1px solid #f0f1f3;
+  background: #fff;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+.brand-beta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 17px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 106, 43, 0.14);
+  border: 1px solid rgba(255, 106, 43, 0.45);
+  color: var(--primary-strong);
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-button,
+.profile-chip {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #edf0f4;
+  border-radius: 999px;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-content {
+  padding: 16px;
+}
+
+.bottom-tab {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(74px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid #ebedf0;
+  backdrop-filter: blur(14px);
+}
+
+.tab-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #767b85;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tab-item-active {
+  color: var(--primary-strong);
+}
+
+.button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 18px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.button-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.94);
+  color: #111827;
+}
+
+.button-ghost {
+  background: rgba(255, 255, 255, 0.13);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+}
+

@@ -1,0 +1,333 @@
+/* ============================================================
+ * 프로필 모달 (작성자 닉네임/사진 탭 시 열림)
+ * 작은 카드형 — 시즌 레벨/자기소개/활동 지표/친구 액션을 한 번에 표시.
+ * .profile-popover-panel 은 phone-frame-dark 컨텍스트 안팎 어디서든 동작.
+ * 다른 풀시트 모달과 달리 PC/모바일 모두 화면 가운데에 작은 카드로 표시한다.
+ * ============================================================ */
+
+/* 모바일 기본은 modal-backdrop이 align-items: flex-end (바텀시트)이지만,
+   프로필 모달은 가운데로 강제 — :has() 셀렉터로 자기 자신만 적용 */
+.modal-backdrop:has(.profile-popover-panel) {
+  align-items: center;
+  padding: 16px;
+}
+
+.modal-panel.profile-popover-panel {
+  /* width: auto면 콘텐츠 폭에 맞춰 좁아져서 한참 작게 보임.
+     phone-frame 폭의 - 32px(좌우 16px 여백)까지 가득 채우되 380px 상한.
+     .modal-panel 더 구체적인 셀렉터로 PC 미디어쿼리(390px) 덮어쓰기. */
+  width: calc(100% - 32px);
+  max-width: 380px;
+  max-height: calc(100% - 32px);
+  background: #0d1a30;
+  color: #f7f9fc;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px; /* 모든 모서리 둥글게 (바텀시트가 아닌 카드형) */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+.profile-popover-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f7f9fc;
+}
+
+.profile-popover-panel .modal-header strong {
+  color: #f7f9fc;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.profile-popover-panel .modal-close {
+  color: rgba(247, 249, 252, 0.72);
+  background: transparent;
+  border: 0;
+}
+
+.profile-popover-panel .modal-body {
+  background: #0d1a30;
+  padding: 18px 18px 22px;
+}
+
+.profile-popover-state {
+  text-align: center;
+  color: rgba(247, 249, 252, 0.65);
+  font-size: 13px;
+  padding: 28px 8px;
+}
+
+.profile-popover-error {
+  color: #ff6a6a;
+}
+
+.profile-popover-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 헤더 — 사진 + 닉네임 + 팀 */
+.profile-popover-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-popover-avatar {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.profile-popover-avatar-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: rgba(247, 249, 252, 0.85);
+}
+
+.profile-popover-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.profile-popover-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #f7f9fc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-popover-team {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(247, 249, 252, 0.7);
+}
+
+.profile-popover-team .team-badge {
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+}
+
+.profile-popover-team-separator {
+  color: rgba(247, 249, 252, 0.38);
+  font-weight: 800;
+}
+
+.profile-popover-level-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+/* 시즌 레벨 */
+.profile-popover-level {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 106, 43, 0.12);
+  border: 1px solid rgba(255, 106, 43, 0.32);
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.profile-popover-level-badge {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ff6a2b;
+  letter-spacing: 0.4px;
+}
+
+.profile-popover-level-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(247, 249, 252, 0.85);
+}
+
+/* 자기소개 */
+.profile-popover-bio {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(247, 249, 252, 0.88);
+  line-height: 1.5;
+  word-break: break-word;
+  /* 한 줄 정책이지만 모달 표시는 wrap 허용해 길어도 보이도록.
+     입력 시점에 줄바꿈을 차단하므로 여기서는 자연스러운 단어 wrap만. */
+}
+
+.profile-popover-bio-empty {
+  color: rgba(247, 249, 252, 0.45);
+  font-style: italic;
+}
+
+/* 시즌 활동 지표 */
+.profile-popover-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.profile-popover-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.profile-popover-stat-value {
+  font-size: 22px;
+  font-weight: 900;
+  color: #f7f9fc;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.profile-popover-stat-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(247, 249, 252, 0.5);
+}
+
+/* 친구 액션 */
+.profile-popover-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.profile-popover-action-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(247, 249, 252, 0.55);
+  padding: 8px 14px;
+}
+
+.profile-popover-friend-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #4ade80;
+}
+
+.profile-popover-pending {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(247, 249, 252, 0.55);
+}
+
+.profile-popover-add-friend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  background: #ff6a2b;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(255, 106, 43, 0.32);
+  transition: transform 0.08s ease, box-shadow 0.16s ease;
+}
+
+.profile-popover-add-friend:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.profile-popover-add-friend:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.profile-popover-respond {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-popover-respond-accept,
+.profile-popover-respond-reject {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.08s ease;
+}
+
+.profile-popover-respond-accept {
+  background: #ff6a2b;
+  border: 0;
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(255, 106, 43, 0.32);
+}
+
+.profile-popover-respond-reject {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(247, 249, 252, 0.78);
+}
+
+.profile-popover-respond-accept:active:not(:disabled),
+.profile-popover-respond-reject:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.profile-popover-respond-accept:disabled,
+.profile-popover-respond-reject:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* "닉네임/사진 탭 가능" 시각 힌트 — 작성자 영역 hover/active 피드백 */
+.profile-author-trigger {
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+}
+
+.profile-author-trigger:active {
+  opacity: 0.6;
+}

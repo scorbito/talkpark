@@ -1,0 +1,390 @@
+﻿/* ============================================================
+ * 다음 직관 카드 — 경기 시작됨 + 경기 종료 버튼
+ * ============================================================ */
+.phone-frame-dark .hd-game-progress-row {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.phone-frame-dark .hd-game-progress-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .hd-game-progress-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.6);
+  animation: pulse-live 1.6s ease-out infinite;
+}
+
+@keyframes pulse-live {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.55); }
+  100% { box-shadow: 0 0 0 8px rgba(255, 59, 59, 0); }
+}
+
+/* 다음 직관 → 현재 직관 라이브 헤더 */
+.phone-frame-dark .hd-section-title-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--hd-accent-orange);
+}
+
+.phone-frame-dark .hd-section-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.6);
+  animation: pulse-live 1.6s ease-out infinite;
+}
+
+.phone-frame-dark .hd-game-end-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--hd-accent-orange);
+  border: 0;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter 0.18s ease, transform 0.06s ease;
+}
+
+.phone-frame-dark .hd-game-end-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.phone-frame-dark .hd-game-end-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.phone-frame-dark .hd-game-end-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+ * AttendanceResultModal — 풀스크린 결과 (승/패/무)
+ * ============================================================ */
+.result-modal {
+  /* phone-frame은 overflow:hidden + border-radius로 자식을 클리핑하므로
+     fixed가 viewport에 떠도 phone-frame 영역 밖에서 잘림.
+     ModalShell 등 다른 모달과 동일하게 absolute로 phone-frame 안에 배치. */
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(160deg, #06101e 0%, #0c1c36 60%, #07163a 100%);
+  animation: result-fade-in 0.35s ease;
+  overflow: hidden;
+}
+
+.result-modal-win {
+  background: radial-gradient(circle at 50% 20%, #ff6a2b 0%, #d41d2f 35%, #07163a 80%);
+}
+
+.result-modal-lose {
+  background: linear-gradient(160deg, #0a1628 0%, #1a2540 70%, #0a1628 100%);
+}
+
+.result-modal-draw {
+  background: linear-gradient(160deg, #0c1c2e 0%, #1c2a3e 70%, #0c1c2e 100%);
+}
+
+@keyframes result-fade-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.result-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.result-modal-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.result-modal-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.result-mascot-wrap {
+  width: 210px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  animation: mascot-bounce 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes mascot-bounce {
+  0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+  60% { transform: scale(1.08) translateY(-4px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.result-emoji-row {
+  font-size: 38px;
+  line-height: 1;
+  animation: emoji-pop 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+}
+
+@keyframes emoji-pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.result-headline {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.result-modal-win .result-headline {
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(255, 255, 255, 0.3), 0 0 24px rgba(255, 255, 255, 0.2);
+}
+
+.result-sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.result-score-board {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  width: 100%;
+}
+
+.result-team-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.result-team-side strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: -0.2px;
+}
+
+.result-team-side em {
+  font-size: 32px;
+  font-weight: 900;
+  font-style: normal;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.result-team-mine em {
+  color: #ff6a2b;
+  text-shadow: 0 0 16px rgba(255, 106, 43, 0.45);
+}
+
+.result-modal-lose .result-team-mine em,
+.result-modal-draw .result-team-mine em {
+  color: #ffffff;
+}
+
+.result-vs {
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1px;
+}
+
+.result-trophy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.result-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.result-action-secondary,
+.result-action-primary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  transition: filter 0.18s ease, transform 0.06s ease;
+}
+
+.result-action-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.result-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.result-action-primary {
+  background: #ffffff;
+  color: #07163a;
+}
+
+.result-action-primary:hover {
+  filter: brightness(0.95);
+}
+
+.result-action-primary:active,
+.result-action-secondary:active {
+  transform: scale(0.97);
+}
+
+/* 폭죽/꽃가루 (승리만) — CSS 변수로 piece별 다르게 */
+.result-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: var(--confetti-top, -10vh);
+  border-radius: 2px;
+  animation-name: confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+  --confetti-rotate: 720deg;
+  --confetti-drift: 0px;
+  --confetti-top: -10vh;
+}
+
+.confetti-piece-circle {
+  border-radius: 50%;
+}
+
+.confetti-piece-0 { background: #ff6a2b; box-shadow: 0 0 6px rgba(255, 106, 43, 0.5); }
+.confetti-piece-1 { background: #ffd24d; box-shadow: 0 0 6px rgba(255, 210, 77, 0.45); }
+.confetti-piece-2 { background: #ffffff; }
+.confetti-piece-3 { background: #66e3ff; box-shadow: 0 0 6px rgba(102, 227, 255, 0.4); }
+.confetti-piece-4 { background: #d41d2f; box-shadow: 0 0 6px rgba(212, 29, 47, 0.5); }
+
+@keyframes confetti-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(var(--confetti-drift), 160vh, 0) rotate(var(--confetti-rotate));
+  }
+}
+
+/* 초기 폭죽 — 모달 열릴 때 한 번 위로 솟구치는 입자 (선택) */
+.result-modal-win::before,
+.result-modal-win::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd24d, #ff6a2b);
+  box-shadow:
+    0 0 8px rgba(255, 210, 77, 0.9),
+    -40px 30px 0 #ff6a2b, 30px 50px 0 #ffd24d, -60px 70px 0 #66e3ff,
+    50px 20px 0 #ffffff, -30px -40px 0 #d41d2f, 60px -30px 0 #ffd24d,
+    20px 40px 0 #66e3ff, -50px -10px 0 #ff6a2b, 40px -50px 0 #ffffff;
+  left: 30%;
+  top: 28%;
+  opacity: 0;
+  animation: firework-burst 1.4s ease-out 0.4s 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.result-modal-win::after {
+  left: 70%;
+  top: 35%;
+  animation-delay: 0.7s;
+}
+
+@keyframes firework-burst {
+  0% { transform: scale(0.2); opacity: 0; }
+  20% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}

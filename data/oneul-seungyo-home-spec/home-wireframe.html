@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘은 승요 - 홈</title>
+    <link rel="stylesheet" href="./home.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <h1 class="app-title">오늘은 승요</h1>
+      </header>
+
+      <main class="home-page">
+        <!-- HERO -->
+        <section class="card hero-card">
+          <div class="hero-bg"></div>
+
+          <div class="hero-top">
+            <div class="team-pill">
+              <div class="team-badge badge-lg badge-doosan">D</div>
+              <span class="team-pill-text">내 팀 두산</span>
+            </div>
+          </div>
+
+          <div class="hero-center">
+            <p class="hero-label">내 직관 승률</p>
+            <p class="hero-number">.500</p>
+            <p class="hero-summary">
+              총 6경기 ·
+              <span class="text-win">3승</span>
+              <span class="text-loss">3패</span>
+              <span class="text-draw">0무</span>
+            </p>
+          </div>
+
+          <div class="hero-chips">
+            <div class="info-chip">
+              <span class="chip-icon">🎟</span>
+              <span>직관 6</span>
+            </div>
+            <div class="info-chip">
+              <span class="chip-icon">✏</span>
+              <span>후기 4</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary hero-btn-register">+ 직관 등록</button>
+            <button class="btn btn-secondary hero-btn-review">후기 작성</button>
+            <button class="btn btn-tertiary hero-btn-share">공유</button>
+          </div>
+        </section>
+
+        <!-- NEXT GAME -->
+        <section class="card next-game-card">
+          <div class="section-header">
+            <h2 class="section-title">다음 직관</h2>
+            <button class="icon-link" aria-label="상세 보기">›</button>
+          </div>
+
+          <div class="next-game-meta-row">
+            <span class="status-chip status-chip-dday">D-1</span>
+            <span class="next-game-datetime">2026.05.07 (목) 18:30</span>
+          </div>
+
+          <p class="next-game-location">잠실야구장</p>
+
+          <div class="matchup-row">
+            <div class="matchup-team">
+              <div class="team-badge badge-md badge-lgteam">L</div>
+              <div class="matchup-team-info">
+                <span class="team-name">LG</span>
+                <span class="tiny-chip">원정</span>
+              </div>
+            </div>
+
+            <div class="matchup-vs">VS</div>
+
+            <div class="matchup-team matchup-team-right">
+              <div class="team-badge badge-md badge-doosan">D</div>
+              <div class="matchup-team-info">
+                <span class="team-name">두산</span>
+                <span class="tiny-chip">홈</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECENT GAMES -->
+        <section class="card recent-games-section">
+          <div class="section-header">
+            <div class="section-title-wrap">
+              <h2 class="section-title">최근 직관 경기</h2>
+              <p class="section-substat">
+                <span class="text-win">3승</span>
+                <span class="text-loss">2패</span>
+              </p>
+            </div>
+            <a href="#" class="text-link">더보기</a>
+          </div>
+
+          <div class="recent-games-list">
+            <article class="recent-game-card">
+              <p class="recent-game-date">05.04 (일)</p>
+              <div class="recent-game-score">
+                <span class="team-badge badge-sm badge-doosan">D</span>
+                <span class="score-text">6 : 3</span>
+                <span class="team-badge badge-sm badge-kiwoom">K</span>
+              </div>
+              <div class="result-line">
+                <span class="result-dot result-win"></span>
+                <span class="result-text text-win">승</span>
+              </div>
+            </article>
+
+            <article class="recent-game-card">
+              <p class="recent-game-date">05.03 (토)</p>
+              <div class="recent-game-score">
+                <span class="team-badge badge-sm badge-doosan">D</span>
+                <span class="score-text">4 : 2</span>
+                <span class="team-badge badge-sm badge-hanwha">H</span>
+              </div>
+              <div class="result-line">
+                <span class="result-dot result-win"></span>
+                <span class="result-text text-win">승</span>
+              </div>
+            </article>
+
+            <article class="recent-game-card">
+              <p class="recent-game-date">05.02 (금)</p>
+              <div class="recent-game-score">
+                <span class="team-badge badge-sm badge-ssg">S</span>
+                <span class="score-text">2 : 5</span>
+                <span class="team-badge badge-sm badge-doosan">D</span>
+              </div>
+              <div class="result-line">
+                <span class="result-dot result-loss"></span>
+                <span class="result-text text-loss">패</span>
+              </div>
+            </article>
+
+            <article class="recent-game-card">
+              <p class="recent-game-date">04.30 (수)</p>
+              <div class="recent-game-score">
+                <span class="team-badge badge-sm badge-doosan">D</span>
+                <span class="score-text">7 : 1</span>
+                <span class="team-badge badge-sm badge-nc">N</span>
+              </div>
+              <div class="result-line">
+                <span class="result-dot result-win"></span>
+                <span class="result-text text-win">승</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- TEAM SCHEDULE -->
+        <section class="card weekly-schedule-section">
+          <div class="section-header">
+            <h2 class="section-title">우리팀 일정</h2>
+            <a href="#" class="text-link">전체 일정</a>
+          </div>
+
+          <div class="weekly-schedule-list">
+            <article class="schedule-cell">
+              <p class="schedule-weekday sunday">월</p>
+              <p class="schedule-date">05.04</p>
+              <div class="team-badge badge-sm badge-ssg">S</div>
+              <p class="schedule-status text-win">승</p>
+            </article>
+
+            <article class="schedule-cell">
+              <p class="schedule-weekday">화</p>
+              <p class="schedule-date">05.05</p>
+              <div class="team-badge badge-sm badge-hanwha">H</div>
+              <p class="schedule-status text-win">승</p>
+            </article>
+
+            <article class="schedule-cell">
+              <p class="schedule-weekday">수</p>
+              <p class="schedule-date">05.06</p>
+              <div class="team-badge badge-sm badge-kiwoom">K</div>
+              <p class="schedule-status text-loss">패</p>
+            </article>
+
+            <article class="schedule-cell schedule-cell-today">
+              <p class="schedule-weekday">목</p>
+              <p class="schedule-date">05.07</p>
+              <div class="team-badge badge-sm badge-lgteam">L</div>
+              <p class="schedule-status schedule-status-today">오늘</p>
+            </article>
+
+            <article class="schedule-cell">
+              <p class="schedule-weekday">금</p>
+              <p class="schedule-date">05.08</p>
+              <div class="team-badge badge-sm badge-lgteam">L</div>
+              <p class="schedule-status text-info">예정</p>
+            </article>
+
+            <article class="schedule-cell">
+              <p class="schedule-weekday">토</p>
+              <p class="schedule-date">05.09</p>
+              <div class="team-badge badge-sm badge-nc">N</div>
+              <p class="schedule-status text-info">예정</p>
+            </article>
+
+            <article class="schedule-cell">
+              <p class="schedule-weekday">일</p>
+              <p class="schedule-date">05.10</p>
+              <div class="team-badge badge-sm badge-nc">N</div>
+              <p class="schedule-status text-info">예정</p>
+            </article>
+          </div>
+
+          <p class="schedule-summary">5경기 원정 · 1경기 홈</p>
+        </section>
+      </main>
+
+      <nav class="bottom-nav">
+        <a class="bottom-nav-item active" href="#">
+          <span class="nav-icon">⌂</span>
+          <span class="nav-label">홈</span>
+        </a>
+        <a class="bottom-nav-item" href="#">
+          <span class="nav-icon">▦</span>
+          <span class="nav-label">일정</span>
+        </a>
+        <a class="bottom-nav-item" href="#">
+          <span class="nav-icon">◌</span>
+          <span class="nav-label">커뮤니티</span>
+        </a>
+        <a class="bottom-nav-item" href="#">
+          <span class="nav-icon">◡</span>
+          <span class="nav-label">마이</span>
+        </a>
+      </nav>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+﻿/* ============================================================
+ * Attendance register modal — dark theme
+ * ============================================================ */
+.phone-frame-dark .attendance-modal-panel {
+  background: #0d1a30;
+  color: var(--hd-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  min-height: 92%;
+  max-height: 96%;
+}
+
+.phone-frame-dark .attendance-modal-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .attendance-modal-panel .modal-header strong {
+  color: var(--hd-text-primary);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.phone-frame-dark .attendance-modal-panel .modal-close {
+  color: var(--hd-text-secondary);
+  background: transparent;
+  border: 0;
+}
+
+.phone-frame-dark .attendance-modal-panel .modal-body {
+  background: #0d1a30;
+  scrollbar-width: none;
+}
+
+.phone-frame-dark .attendance-modal-panel .modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-frame-dark .attendance-modal-panel .form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Upload (ticket) box — dashed dark */
+.phone-frame-dark .attendance-modal-panel .upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 14px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  text-align: center;
+}
+
+.phone-frame-dark .attendance-modal-panel .upload-box:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.phone-frame-dark .attendance-modal-panel .upload-box svg {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .attendance-modal-panel .upload-box strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .attendance-modal-panel .upload-box span {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+  line-height: 1.4;
+}
+
+.phone-frame-dark .attendance-modal-panel .upload-box input { display: none; }
+
+/* 티켓 업로드 박스 안의 사후 인증 안내 */
+.phone-frame-dark .attendance-modal-panel .upload-box .upload-box-hint {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 106, 43, 0.1);
+  border: 1px solid rgba(255, 106, 43, 0.25);
+  color: var(--hd-accent-orange);
+  font-size: 10.5px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+/* "다른 팀 경기 N개 더 보기" 토글 — 기본은 내 팀 경기만 노출 */
+.phone-frame-dark .attendance-modal-panel .show-others-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  color: var(--hd-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.phone-frame-dark .attendance-modal-panel .show-others-toggle:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--hd-text-primary);
+}
+
+/* "또는 직접 입력" 구분선 — 티켓 영역과 직접 입력 영역 시각 분리 */
+.phone-frame-dark .attendance-modal-panel .form-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+  color: var(--hd-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.phone-frame-dark .attendance-modal-panel .form-divider::before,
+.phone-frame-dark .attendance-modal-panel .form-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Field row (label + input) */
+.phone-frame-dark .attendance-modal-panel .field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.phone-frame-dark .attendance-modal-panel .field-row > span,
+.phone-frame-dark .attendance-modal-panel .field-group > span,
+.phone-frame-dark .attendance-modal-panel .textarea-field > span {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .attendance-modal-panel .field-help,
+.phone-frame-dark .attendance-modal-panel .field-empty {
+  margin: -2px 0 0;
+  color: var(--hd-text-muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.phone-frame-dark .attendance-modal-panel .field-empty {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.phone-frame-dark .attendance-modal-panel .plain-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  color: var(--hd-text-primary);
+  color-scheme: dark;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  appearance: none;
+}
+
+.phone-frame-dark .attendance-modal-panel .plain-input:focus {
+  outline: none;
+  border-color: rgba(255, 106, 43, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* PC에서도 모바일처럼 — 인풋 전체를 클릭하면 피커가 뜨도록.
+   1) 날짜 텍스트를 가운데 정렬
+   2) ::-webkit-calendar-picker-indicator를 인풋 전체에 깔아 투명 처리
+      → 어디를 눌러도 피커 트리거. 검은 아이콘이 보이지 않아 가독성도 ↑ */
+.phone-frame-dark .attendance-modal-panel input[type="date"].plain-input {
+  position: relative;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+  cursor: pointer;
+}
+.phone-frame-dark .attendance-modal-panel input[type="date"].plain-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* select 드롭다운 옵션 — OS 기본 위젯이 라이트 테마로 떠서 흰 배경/흰 글씨 충돌이
+   생기는 문제를 막기 위해 다크 톤으로 명시. */
+.phone-frame-dark .attendance-modal-panel select.plain-input option {
+  background: #122340;
+  color: var(--hd-text-primary);
+}
+
+/* Game/team picker rows */
+.phone-frame-dark .attendance-modal-panel .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phone-frame-dark .attendance-modal-panel .radio-game {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+}
+
+.phone-frame-dark .attendance-modal-panel .radio-game-active {
+  border-color: rgba(255, 106, 43, 0.45);
+  background: rgba(255, 106, 43, 0.06);
+}
+
+.phone-frame-dark .attendance-modal-panel .team-choice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--hd-text-primary);
+  min-width: 0;
+}
+
+.phone-frame-dark .attendance-modal-panel .team-choice:last-child {
+  justify-content: flex-end;
+}
+
+.phone-frame-dark .attendance-modal-panel .team-choice strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.phone-frame-dark .attendance-modal-panel .team-choice .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* Radio circle (i element) */
+.phone-frame-dark .attendance-modal-panel .team-choice i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  background: transparent;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.phone-frame-dark .attendance-modal-panel .team-choice-active i {
+  border-color: var(--hd-accent-orange);
+  background: var(--hd-accent-orange);
+  box-shadow: inset 0 0 0 3px #0d1a30;
+}
+
+/* Score / VS label between teams */
+.phone-frame-dark .attendance-modal-panel .radio-game em {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--hd-text-muted);
+  font-style: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  min-width: 28px;
+}
+
+/* Textarea (memo) */
+.phone-frame-dark .attendance-modal-panel .textarea-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.phone-frame-dark .attendance-modal-panel .textarea-field textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 70px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.phone-frame-dark .attendance-modal-panel .textarea-field textarea::placeholder {
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .attendance-modal-panel .textarea-field textarea:focus {
+  outline: none;
+  border-color: rgba(255, 106, 43, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Submit button */
+.phone-frame-dark .attendance-modal-panel .button.button-primary {
+  width: 100%;
+  height: 52px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 106, 43, 0.28);
+  margin-top: 4px;
+}
+
+.phone-frame-dark .attendance-modal-panel .button.button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+

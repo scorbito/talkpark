@@ -1,0 +1,276 @@
+﻿/* ── RECENT GAMES ── */
+.phone-frame-dark .hd-recent-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+/* Next attendance pagination arrows */
+.phone-frame-dark .hd-next-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.phone-frame-dark .hd-next-nav button {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: 0;
+  color: var(--hd-text-secondary);
+  cursor: pointer;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-frame-dark .hd-next-nav button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .hd-next-nav button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Empty state cards (다음 직관/최근 직관 비어있을 때) */
+.phone-frame-dark .hd-empty-card .hd-empty-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 8px 8px;
+}
+
+.phone-frame-dark .hd-empty-card .hd-empty-body p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--hd-text-muted);
+  text-align: center;
+}
+
+.phone-frame-dark .hd-empty-card .hd-empty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 106, 43, 0.55);
+  background: var(--hd-accent-orange-soft);
+  color: var(--hd-accent-orange);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.phone-frame-dark .hd-empty-card .hd-empty-cta:hover {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+/* Slide animation when changing next attendance */
+.phone-frame-dark .hd-next-content {
+  overflow: hidden;
+}
+
+.phone-frame-dark .hd-next-content[data-dir="next"] {
+  animation: hd-next-slide-in-right 0.26s cubic-bezier(0.22, 0.8, 0.32, 1);
+}
+
+.phone-frame-dark .hd-next-content[data-dir="prev"] {
+  animation: hd-next-slide-in-left 0.26s cubic-bezier(0.22, 0.8, 0.32, 1);
+}
+
+@keyframes hd-next-slide-in-right {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes hd-next-slide-in-left {
+  from { opacity: 0; transform: translateX(-28px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.phone-frame-dark .hd-recent-card {
+  min-width: 0;
+  flex: initial;
+  padding: 10px 8px;
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.phone-frame-dark .hd-recent-card-clickable {
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.06s ease;
+}
+
+.phone-frame-dark .hd-recent-card-clickable:hover {
+  border-color: rgba(255, 106, 43, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.phone-frame-dark .hd-recent-card-clickable:active {
+  transform: scale(0.97);
+}
+
+.phone-frame-dark .hd-recent-date {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: var(--hd-text-secondary);
+  font-weight: 600;
+}
+
+.phone-frame-dark .hd-recent-score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.phone-frame-dark .hd-recent-score .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .hd-score-text {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--hd-text-primary);
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.phone-frame-dark .hd-result-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.phone-frame-dark .hd-result-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.phone-frame-dark .hd-result-win { background: var(--hd-success); }
+.phone-frame-dark .hd-result-loss { background: var(--hd-danger); }
+.phone-frame-dark .hd-result-draw { background: var(--hd-text-muted); }
+
+.phone-frame-dark .hd-result-text {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── WEEKLY SCHEDULE ── */
+.phone-frame-dark .hd-week-list {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.phone-frame-dark .hd-week-cell {
+  min-width: 0;
+  height: 108px;
+  padding: 8px 2px;
+  border-radius: 11px;
+  border: 1px solid var(--hd-border-soft);
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.phone-frame-dark .hd-week-cell-today {
+  border-color: rgba(255, 106, 43, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 106, 43, 0.15);
+  background: rgba(255, 106, 43, 0.06);
+}
+
+.phone-frame-dark .hd-week-day {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .hd-week-day-sun { color: var(--hd-danger); }
+.phone-frame-dark .hd-week-day-sat { color: var(--hd-info); }
+
+.phone-frame-dark .hd-week-date {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .hd-week-cell .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.phone-frame-dark .hd-week-rest {
+  margin-top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px dashed var(--hd-border-medium);
+}
+
+.phone-frame-dark .hd-week-status {
+  margin: auto 0 0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.phone-frame-dark .hd-week-status-today { color: var(--hd-accent-orange); }
+
+.phone-frame-dark .hd-week-summary {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--hd-text-muted);
+  font-weight: 600;
+}
+
+/* TeamBadge inside dark scope: solid color + thicker white ring */
+.phone-frame-dark .team-badge {
+  background: var(--team-color, #1a2640);
+  color: #ffffff;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: none;
+}
+
+.phone-frame-dark .team-badge-initial {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+@media (max-width: 380px) {
+  .phone-frame-dark .hd-hero-number { font-size: 78px; }
+  .phone-frame-dark .hd-btn { font-size: 12px; height: 40px; }
+  .phone-frame-dark .hd-btn-tertiary { font-size: 11px; }
+}
+

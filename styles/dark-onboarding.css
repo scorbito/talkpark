@@ -1,0 +1,238 @@
+﻿/* ============================================================
+ * Onboarding — phone-frame 자체가 단일 콘텐츠 컨테이너
+ * ============================================================ */
+.phone-frame-dark.onboarding-frame .app-scroll {
+  position: relative;
+  padding: 0;
+}
+
+/* 상단에 야구장 배경 한 겹 — 콘텐츠와 자연스럽게 fade */
+.onboarding-bg-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  background-image: url("/assets/onboarding_bg.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+  pointer-events: none;
+}
+
+/* 폼 자체는 카드처럼 보이지 않게 — phone-frame이 컨테이너 */
+.onboarding-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.onboarding-card .onboarding-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px 20px 24px;
+  color: #f7f9fc;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.onboarding-title {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.onboarding-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.onboarding-field-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(247, 249, 252, 0.78);
+}
+
+.onboarding-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+}
+
+.onboarding-input-wrap:focus-within {
+  border-color: rgba(255, 106, 43, 0.55);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.onboarding-input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.onboarding-input-wrap em {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(247, 249, 252, 0.48);
+}
+
+.onboarding-error {
+  margin: -8px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 90, 100, 0.12);
+  border: 1px solid rgba(255, 90, 100, 0.4);
+  color: #ff5a64;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.onboarding-help {
+  margin: -2px 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(247, 249, 252, 0.55);
+  line-height: 1.55;
+}
+
+.onboarding-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+
+.onboarding-team-choice {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.onboarding-team-choice:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.onboarding-team-choice .team-badge {
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+}
+
+.onboarding-team-choice strong {
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.onboarding-team-choice-active {
+  border-color: #ff6a2b;
+  background: rgba(255, 106, 43, 0.08);
+  box-shadow: 0 0 14px rgba(255, 106, 43, 0.28);
+}
+
+.onboarding-team-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ff6a2b;
+  color: #ffffff;
+}
+
+.onboarding-footnote {
+  margin: 6px 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(247, 249, 252, 0.48);
+}
+
+.onboarding-submit {
+  margin-top: 10px;
+  width: 100%;
+  height: 54px;
+  border: 0;
+  border-radius: 14px;
+  background: #ff6a2b;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(255, 106, 43, 0.32);
+  letter-spacing: -0.2px;
+}
+
+.onboarding-submit:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.onboarding-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* 폼 제출 pending 스피너 (OnboardingForm + LoginForm) */
+.onboarding-submit,
+.login-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.onboarding-submit-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: initial-loader-spin 0.7s linear infinite;
+}
+
+@media (max-width: 380px) {
+  .onboarding-card { padding: 44px 18px 28px; }
+  .onboarding-title { font-size: 22px; }
+  .onboarding-team-choice { padding: 10px 12px; gap: 10px; grid-template-columns: 32px 1fr auto; }
+  .onboarding-team-choice .team-badge { width: 32px; height: 32px; font-size: 14px; }
+  .onboarding-team-choice strong { font-size: 14px; }
+}
+

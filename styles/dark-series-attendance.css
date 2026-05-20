@@ -1,0 +1,460 @@
+﻿/* ============================================================
+ * My attendance list — dark theme
+ * ============================================================ */
+.phone-frame-dark .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0 8px;
+  color: var(--hd-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.phone-frame-dark .back-link:hover { color: var(--hd-text-primary); }
+
+/* Schedule view switch — 기본/시리즈/팀 순위 */
+.phone-frame-dark .sched-view-switch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.phone-frame-dark .sched-view-tab {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--hd-text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.phone-frame-dark .sched-view-tab:hover {
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .sched-view-tab-active {
+  background: var(--hd-accent-orange-soft);
+  border-color: rgba(255, 106, 43, 0.6);
+  color: var(--hd-accent-orange);
+}
+
+/* Series mode — week rows + series bars */
+.phone-frame-dark .sched-series-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-frame-dark .sched-week {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-frame-dark .sched-week-cells {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.phone-frame-dark .sched-week:first-child .sched-week-cells {
+  border-top: 0;
+}
+
+.phone-frame-dark .sched-cell-compact {
+  min-height: 32px;
+  padding: 5px 0 0;
+  gap: 0;
+}
+
+.phone-frame-dark .sched-cell-compact .sched-date {
+  font-size: 12px;
+}
+
+.phone-frame-dark .sched-series-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  padding: 2px 4px 4px;
+  min-height: 24px;
+}
+
+.phone-frame-dark .sched-series-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--series-color) 88%, #000) 0%, color-mix(in srgb, var(--series-color) 65%, #000) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.phone-frame-dark .sched-series-bar small {
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.8;
+  text-transform: none;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.25);
+  letter-spacing: 0;
+}
+
+.phone-frame-dark .sched-series-bar strong {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* 시리즈가 주를 넘어 이어지는 경우 양 끝 처리 */
+.phone-frame-dark .sched-series-cont-start {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -2px;
+}
+
+.phone-frame-dark .sched-series-cont-end {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -2px;
+}
+
+/* 원정은 살짝 톤 다르게 (대각 줄무늬) */
+.phone-frame-dark .sched-series-away::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent 0 6px, rgba(0, 0, 0, 0.18) 6px 7px);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.phone-frame-dark .sched-series-away {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Series result row — 시리즈 막대 아래, 같은 grid-column으로 정렬 */
+.phone-frame-dark .sched-series-result-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  padding: 0 4px 6px;
+  min-height: 18px;
+}
+
+.phone-frame-dark .sched-series-result {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid transparent;
+}
+
+.phone-frame-dark .sched-series-result-sweep_w {
+  background: rgba(31, 154, 85, 0.22);
+  border-color: rgba(31, 154, 85, 0.55);
+  color: #4cd185;
+}
+
+.phone-frame-dark .sched-series-result-winning {
+  background: rgba(31, 154, 85, 0.14);
+  border-color: rgba(31, 154, 85, 0.4);
+  color: #3ec97a;
+}
+
+.phone-frame-dark .sched-series-result-split {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(247, 250, 255, 0.7);
+}
+
+.phone-frame-dark .sched-series-result-losing {
+  background: rgba(184, 50, 60, 0.14);
+  border-color: rgba(184, 50, 60, 0.45);
+  color: #e8616b;
+}
+
+.phone-frame-dark .sched-series-result-sweep_l {
+  background: rgba(184, 50, 60, 0.22);
+  border-color: rgba(184, 50, 60, 0.6);
+  color: #ff6b75;
+}
+
+.phone-frame-dark .sched-series-result-ongoing {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: rgba(247, 250, 255, 0.55);
+}
+
+/* Segmented filter */
+.phone-frame-dark .segmented-control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.phone-frame-dark .segmented-control .segment {
+  height: 36px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--hd-text-secondary);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.phone-frame-dark .segmented-control .segment:hover {
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .segmented-control .segment-active {
+  background: var(--hd-accent-orange-soft);
+  border-color: rgba(255, 106, 43, 0.55);
+  color: var(--hd-accent-orange);
+}
+
+.phone-frame-dark .segmented-control + .attendance-list {
+  margin-top: -12px;
+}
+
+/* Attendance list */
+.phone-frame-dark .attendance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone-frame-dark .attendance-item {
+  position: relative;
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Result corner badge */
+.phone-frame-dark .attendance-result-badge {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  height: 22px;
+  min-width: 32px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.phone-frame-dark .attendance-result-win { background: #1f9a55; }
+.phone-frame-dark .attendance-result-lose { background: #b8323c; }
+.phone-frame-dark .attendance-result-draw { background: #4a5160; }
+.phone-frame-dark .attendance-result-scheduled {
+  background: #4a5160;
+  color: var(--hd-text-secondary);
+}
+
+/* Card body */
+.phone-frame-dark .attendance-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.phone-frame-dark .attendance-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.phone-frame-dark .attendance-date {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hd-text-secondary);
+  letter-spacing: -0.1px;
+}
+
+.phone-frame-dark .attendance-meta .status-verified,
+.phone-frame-dark .attendance-meta .status-muted {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.phone-frame-dark .attendance-meta .status-verified {
+  background: rgba(36, 194, 106, 0.16);
+  color: var(--hd-success);
+  border: 1px solid rgba(36, 194, 106, 0.4);
+}
+
+.phone-frame-dark .attendance-meta .status-muted {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--hd-text-muted);
+  border: 1px solid var(--hd-border-soft);
+}
+
+.phone-frame-dark .attendance-item .inline-delete {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--hd-border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hd-text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .attendance-item .inline-delete:hover {
+  background: rgba(255, 90, 100, 0.14);
+  border-color: rgba(255, 90, 100, 0.4);
+  color: var(--hd-danger);
+}
+
+/* Match row */
+.phone-frame-dark .attendance-match {
+  width: calc(100% - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.phone-frame-dark .attendance-match .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+.phone-frame-dark .attendance-match strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .attendance-match b {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+}
+
+/* Action row: review action centered (delete is absolute on the card) */
+.phone-frame-dark .attendance-action-row {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame-dark .attendance-action-row .review-action {
+  min-width: 140px;
+  height: 34px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  background: transparent;
+}
+
+.phone-frame-dark .attendance-action-row .review-action-write {
+  border: 1px solid rgba(255, 106, 43, 0.55);
+  color: var(--hd-accent-orange);
+  background: var(--hd-accent-orange-soft);
+}
+
+.phone-frame-dark .attendance-action-row .review-action-write:hover {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+.phone-frame-dark .attendance-action-row .review-action-done {
+  border: 1px solid rgba(36, 194, 106, 0.45);
+  color: var(--hd-success);
+  background: rgba(36, 194, 106, 0.12);
+}
+
+.phone-frame-dark .attendance-help-text {
+  margin: 2px 0 0;
+  padding-right: 42px;
+  color: var(--hd-text-muted);
+  font-size: 11.5px;
+  font-weight: 650;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* Delete button — absolute, bottom-right of the card */
+.phone-frame-dark .attendance-item > .inline-delete {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+}
+
+.phone-frame-dark .attendance-list .empty-inline {
+  text-align: center;
+  color: var(--hd-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 28px 0;
+}
+

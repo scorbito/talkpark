@@ -1,0 +1,17 @@
+{
+  "regions": ["icn1"],
+  "crons": [
+    {
+      "path": "/api/cron/sync-kbo-games?scope=week",
+      "schedule": "0 18 * * *"
+    },
+    {
+      "path": "/api/cron/sync-kbo-games?scope=today",
+      "schedule": "0 23 * * *"
+    },
+    {
+      "path": "/api/cron/sync-kbo-standings",
+      "schedule": "30 14 * * *"
+    }
+  ]
+}

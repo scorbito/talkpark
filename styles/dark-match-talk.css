@@ -1,0 +1,742 @@
+/* 경기톡 (Match Talk) 다크 테마 스타일 */
+
+/* 커뮤니티 상단 탭 (후기 / 경기톡) */
+.phone-frame-dark .community-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--hd-border-soft);
+}
+
+.phone-frame-dark .community-tab {
+  flex: 1;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--hd-text-secondary);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.phone-frame-dark .community-tab:hover {
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .community-tab-active {
+  color: var(--hd-text-primary);
+  border-bottom-color: var(--hd-accent-orange);
+}
+
+/* 경기톡 안내 영역 — 필터 칩이 표시되지 않을 때 좌측에 노출 */
+.phone-frame-dark .match-talk-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.phone-frame-dark .match-talk-intro-title,
+.phone-frame-dark .match-talk-filter-hint {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--hd-text-muted);
+  white-space: nowrap;
+}
+
+/* 경기톡 컨텍스트 헤더 (선택된 경기 표시) */
+.phone-frame-dark .match-talk-context-header {
+  /* community-head의 margin-bottom(4px)을 흡수해 필터 칩 줄과 헤더를 더 가깝게 한다 */
+  margin: -4px 0 0;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--hd-text-secondary);
+}
+
+/* 컨텍스트 헤더 바로 뒤의 review-feed는 자체 상단 여백을 회수해
+ * 헤더와 첫 카드 사이를 좁힌다. (일반 community.css의 margin-top: 14px도 무효화) */
+.phone-frame-dark .match-talk-context-header + .review-feed {
+  margin-top: 6px;
+  padding-top: 0;
+}
+
+.phone-frame-dark .match-talk-context-header strong {
+  color: var(--hd-text-primary);
+  font-weight: 700;
+}
+
+/* 경기톡 카드 — 후기 카드와 동일한 폭. 좌우 마진은 부모(.review-feed)가 책임진다. */
+.phone-frame-dark .match-post-card {
+  padding: 14px 14px 12px;
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .match-post-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.phone-frame-dark .match-post-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.phone-frame-dark .match-post-avatar {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1a2640;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .match-post-avatar-initial {
+  background: linear-gradient(135deg, #2c3a5c, #1a2640);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.phone-frame-dark .match-post-author-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.phone-frame-dark .match-post-author-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .match-post-author-name strong {
+  font-weight: 700;
+}
+
+.phone-frame-dark .match-post-attended-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px 6px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.phone-frame-dark .match-post-time {
+  font-size: 11px;
+  color: var(--hd-text-muted);
+}
+
+.phone-frame-dark .match-post-header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .match-post-more {
+  position: relative;
+}
+
+.phone-frame-dark .match-post-more > .icon-button {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  color: var(--hd-text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.phone-frame-dark .match-post-more > .icon-button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .match-post-more-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--hd-surface-card);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 100px;
+  z-index: 5;
+}
+
+.phone-frame-dark .match-post-more-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  color: var(--hd-danger);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.phone-frame-dark .match-post-more-menu button:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* 경기 컨텍스트 (스코어 + 상태) */
+.phone-frame-dark .match-post-game-context {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 8px;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+}
+
+.phone-frame-dark .match-post-game-context .match-post-score {
+  flex: 1;
+  text-align: center;
+}
+
+.phone-frame-dark .match-post-emotion-emoji {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+
+.phone-frame-dark .match-post-game-context:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.phone-frame-dark .match-post-game-context-static {
+  cursor: default;
+}
+
+.phone-frame-dark .match-post-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.phone-frame-dark .match-post-canceled-badge {
+  padding: 2px 8px;
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5e1;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+/* 본문 */
+.phone-frame-dark .match-post-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--hd-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 사진 — 원본 비율 유지(세로/가로 사진 모두 잘리지 않도록).
+   너무 긴 세로 사진은 max-height로 화면 1.2배 안에서 자름. */
+.phone-frame-dark .match-post-photo {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a2640;
+}
+
+.phone-frame-dark .match-post-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* 액션 (좋아요/댓글) */
+.phone-frame-dark .match-post-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 6px;
+  border-top: 1px solid var(--hd-border-soft);
+}
+
+.phone-frame-dark .match-post-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--hd-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.phone-frame-dark .match-post-action:hover {
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .match-post-action-static {
+  cursor: default;
+}
+
+/* 카드 안에서 펼쳐지는 댓글 영역 — CommentThread를 그대로 받지만
+ * 카드 안이라는 컨텍스트에 맞춰 상단 구분선과 약간의 여백만 추가. */
+.phone-frame-dark .match-post-comments-region {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--hd-border-soft);
+}
+
+.phone-frame-dark .match-post-comments-loading {
+  margin: 0;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--hd-text-muted);
+}
+
+/* 홈 우리팀 일정 — 경기톡 말풍선 인디케이터.
+ * 카드 우상단 바깥쪽에 살짝 떠 있는 작은 말풍선 모양 칩.
+ * 안에는 글 개수(1~9), 10 이상은 "9+"로 표시.
+ * 카드 테두리 바깥으로 살짝 튀어나오도록 음수 offset + overflow: visible 보장. */
+
+/* week-list에 isolation을 박아 새 stacking context를 만든다.
+ * 이렇게 하면 안쪽의 z-index가 아무리 높아도 외부(하단 탭바 등)와 비교되지 않고,
+ * week-list 안에서만 쌓이게 된다. → 말풍선이 탭바 위로 튀어오르는 문제 차단. */
+.phone-frame-dark .hd-week-list {
+  isolation: isolate;
+}
+
+.phone-frame-dark .hd-week-cell {
+  position: relative;
+  overflow: visible;
+}
+
+.phone-frame-dark .hd-week-talk-bubble {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 22px;
+  height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hd-accent-orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  /* 말풍선 모양 — 좌하단만 살짝 작게 굴려 꼬리 느낌을 준다 */
+  border-radius: 999px 999px 999px 4px;
+  box-shadow: 0 2px 6px rgba(255, 106, 43, 0.35);
+  /* 카드 내부에서 다른 콘텐츠 위에 있되, 하단 탭바(z-index 50)보다는 아래 */
+  z-index: 1;
+  transform-origin: center center;
+  /* 6초 주기 — 0~2초 흔들기, 2~6초 정지. 사용자 피로 줄이고 시선만 가끔 끈다. */
+  animation: hd-talk-bubble-wiggle 6s ease-in-out infinite;
+}
+
+.phone-frame-dark .hd-week-talk-bubble:hover {
+  background: #ff7c45;
+}
+
+@keyframes hd-talk-bubble-wiggle {
+  0%   { transform: translateX(0); }
+  4%   { transform: translateX(-1.5px); }
+  10%  { transform: translateX(1.5px); }
+  16%  { transform: translateX(-1.5px); }
+  22%  { transform: translateX(1.5px); }
+  28%  { transform: translateX(-1px); }
+  33%  { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+/* 모션 감소 환경에서는 흔들림을 끄는 게 표준 (접근성). */
+@media (prefers-reduced-motion: reduce) {
+  .phone-frame-dark .hd-week-talk-bubble {
+    animation: none;
+  }
+}
+
+/* ---------- 작성 모달 ---------- */
+
+/* 모달 본체 다크 — phone-frame-dark 스코프를 쓰지 않음.
+ * ModalShell이 phone-frame 바깥(portal-like)에 렌더되는 경우에도 적용되도록
+ * 클래스 자체에 색을 직접 박는다. dark-review-modal.css와 같은 패턴. */
+.match-talk-modal-panel {
+  background: #0d1a30;
+  color: #e6e8ee;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.match-talk-modal-panel .modal-header {
+  background: #0d1a30;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e6e8ee;
+}
+
+.match-talk-modal-panel .modal-header strong {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.match-talk-modal-panel .modal-close {
+  color: #c0c5d0;
+  background: transparent;
+  border: 0;
+}
+
+.match-talk-modal-panel .modal-body {
+  background: #0d1a30;
+  scrollbar-width: none;
+}
+
+.match-talk-modal-panel .modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+.match-talk-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.composer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.composer-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #c0c5d0;
+}
+
+.composer-loading,
+.composer-empty {
+  font-size: 12px;
+  color: #8b91a0;
+  margin: 0;
+}
+
+/* 날짜 — 7일 한 줄 균등 배치, 두 줄(MD / 요일) */
+.composer-date-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.composer-date-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 6px 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #d5d9e1;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.composer-date-md {
+  font-size: 12px;
+}
+
+.composer-date-weekday {
+  font-size: 10px;
+  color: #8b91a0;
+}
+
+.composer-date-chip-active {
+  background: #ff6a2b;
+  border-color: #ff6a2b;
+  color: #fff;
+}
+
+.composer-date-chip-active .composer-date-weekday {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.composer-date-chip-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* 경기 — 그 날짜 5경기를 한 줄에 균등 배치, 시간 없이 어웨이/홈만 세로 두 줄 */
+.composer-game-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.composer-game-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: #e6e8ee;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  min-width: 0;
+}
+
+.composer-game-chip-active {
+  background: rgba(255, 106, 43, 0.14);
+  border-color: rgba(255, 106, 43, 0.55);
+}
+
+.composer-game-team-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.composer-game-team-line > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.composer-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 96px;
+}
+
+.composer-textarea:focus {
+  outline: none;
+  border-color: rgba(255, 106, 43, 0.6);
+}
+
+.composer-counter {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 11px;
+  color: #8b91a0;
+}
+
+.composer-emotion-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.composer-emotion-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #d5d9e1;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.composer-emotion-chip > span:first-child {
+  font-size: 18px;
+}
+
+.composer-emotion-chip-active {
+  background: rgba(255, 106, 43, 0.18);
+  border-color: rgba(255, 106, 43, 0.6);
+  color: #fff;
+}
+
+.composer-photo-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #d5d9e1;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.composer-photo-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.composer-photo-frame {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a2640;
+}
+
+.composer-photo-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ff6a6a;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.composer-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.composer-cancel {
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #d5d9e1;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.composer-hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #8b91a0;
+  text-align: center;
+}
+
+/* 라이브 스코어 박제 미리보기 */
+.composer-live-preview {
+  padding: 10px 12px;
+  background: rgba(255, 106, 43, 0.08);
+  border: 1px solid rgba(255, 106, 43, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.composer-live-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.composer-live-preview-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #ff6a2b;
+  letter-spacing: 0.3px;
+}
+
+.composer-live-preview-source {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8b91a0;
+}
+
+.composer-live-preview-body {
+  display: flex;
+  align-items: center;
+}
+
+.composer-live-preview-text {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.composer-live-preview-muted {
+  font-size: 12px;
+  color: #8b91a0;
+}
+
+.composer-live-preview-hint {
+  margin: 0;
+  font-size: 11px;
+  color: #8b91a0;
+}

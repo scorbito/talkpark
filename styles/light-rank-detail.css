@@ -1,0 +1,374 @@
+﻿.ranking-table {
+  margin-top: 14px;
+  border: 1px solid #edf0f4;
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.ranking-table-head {
+  display: grid;
+  grid-template-columns: 18px 78px 50px 32px 70px 60px;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0f1f3;
+  background: #f9fafb;
+  color: #7b8290;
+  font-size: 12px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.ranking-table-head > span {
+  white-space: nowrap;
+}
+
+.ranking-table-head > span:nth-child(1) {
+  text-align: left;
+}
+
+
+.ranking-table-body {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ranking-row {
+  display: grid;
+  grid-template-columns: 18px 78px 50px 32px 70px 60px;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 13px;
+  font-weight: 900;
+  color: #111827;
+  text-align: center;
+}
+
+.ranking-row:last-child {
+  border-bottom: 0;
+}
+
+.ranking-row-highlighted {
+  background: #fff8f3;
+}
+
+.ranking-rank {
+  font-size: 14px;
+  font-weight: 950;
+  color: #111827;
+  text-align: left;
+}
+
+.ranking-team {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ranking-form {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.ranking-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+
+.ranking-dot-w { background: #22c55e; }
+.ranking-dot-l { background: #ef4444; }
+.ranking-dot-d { background: #fbbf24; }
+
+.ranking-team strong {
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.ranking-rate {
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-gap {
+  color: #4b5563;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-record {
+  color: #4b5563;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.full-ranking-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.full-rank-row {
+  padding: 13px 12px;
+  border: 1px solid #edf0f4;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.full-rank-highlighted {
+  background: #fff4ed;
+}
+
+.full-rank-top {
+  display: grid;
+  grid-template-columns: 20px 26px minmax(42px, 1fr) auto 44px 32px;
+  align-items: center;
+  gap: 7px;
+}
+
+.full-rank-top span,
+.full-rank-top strong,
+.full-rank-top b {
+  font-weight: 950;
+}
+
+.full-rank-top em,
+.full-rank-top small {
+  color: #565e6b;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 8px 0 0 53px;
+  color: #7b8290;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.form-row em {
+  margin-left: auto;
+  font-style: normal;
+}
+
+.form-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+
+.form-w { background: #54bc43; }
+.form-l { background: #d1d5db; }
+.form-d { background: #fbbf24; }
+
+.detail-topbar {
+  display: grid;
+  grid-template-columns: 1fr 36px;
+  align-items: center;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.detail-topbar a {
+  display: inline-flex;
+}
+
+.score-board {
+  min-height: 214px;
+  padding: 22px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  border-radius: 18px;
+  color: #fff;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 28%), linear-gradient(135deg, #07163a, #71142b);
+}
+
+.score-board > div {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.score-board b {
+  font-size: 56px;
+  font-weight: 950;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-board strong {
+  font-size: 15px;
+}
+
+.pill-win,
+.pill-lose {
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.pill-win { background: #2563eb; }
+.pill-lose { background: #dc2626; }
+
+.inning-card,
+.info-list,
+.summary-card {
+  margin-top: 12px;
+}
+
+.inning-row {
+  display: grid;
+  grid-template-columns: 40px repeat(12, 1fr);
+  gap: 2px;
+  min-width: 0;
+}
+
+.inning-row span {
+  padding: 6px 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.inning-head span {
+  color: #7b8290;
+}
+
+.info-list div {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #f1f2f5;
+  font-size: 13px;
+}
+
+.info-list div:last-child {
+  border-bottom: 0;
+}
+
+.info-list span {
+  color: #7b8290;
+  font-weight: 750;
+}
+
+.summary-card h2,
+.stats-card h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.sticky-action-row {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin: 16px -16px -92px;
+  padding: 12px 16px 92px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 26%);
+}
+
+.sticky-action-row .button {
+  width: 100%;
+  box-shadow: 0 10px 24px rgba(255, 85, 31, 0.22);
+}
+
+.not-found-panel {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 18px;
+  text-align: center;
+}
+
+.not-found-panel h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 950;
+}
+
+.not-found-panel p {
+  margin: 9px 0 18px;
+  color: #7b8290;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.not-found-panel a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--primary);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.summary-grid,
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.summary-grid span,
+.stat-grid span {
+  padding: 10px 4px;
+  border-radius: 12px;
+  background: #f7f8fa;
+  text-align: center;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.summary-grid b,
+.stat-grid b {
+  display: block;
+  margin-top: 4px;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.stat-grid b em {
+  margin-left: 2px;
+  color: #7b8290;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.sticky-action-row {
+  position: sticky;
+  bottom: 0;
+  margin-top: 14px;
+  padding: 10px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 38%);
+}
+
+.sticky-action-row .button {
+  width: 100%;
+}
+

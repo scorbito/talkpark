@@ -1,0 +1,480 @@
+﻿.win-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 184px;
+  border-radius: 16px;
+  padding: 22px 18px 16px;
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(12, 18, 40, 0.24);
+}
+
+.win-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.18), transparent 18%),
+    linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.1));
+  pointer-events: none;
+}
+
+.win-hero-team-pill {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin: 0 auto 10px;
+  padding: 6px 10px 6px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.win-hero-team-pill span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.win-hero-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.win-hero-copy p {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.win-hero-copy strong {
+  display: block;
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 950;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.win-hero-copy span {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.hero-register-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.review-float-buttons {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+}
+
+.game-banner {
+  margin-top: 12px;
+  min-height: 112px;
+  border-radius: 16px;
+  padding: 13px 14px 14px;
+  background: linear-gradient(135deg, #e8f4ff, #a8cdfa);
+  border: 1px solid #d8e8fb;
+}
+
+.next-game-card {
+  display: grid;
+  gap: 13px;
+}
+
+.next-game-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.next-game-meta time,
+.next-game-meta em {
+  color: #35506c;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.next-game-label {
+  justify-self: start;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.next-game-label span {
+  color: #35506c;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.next-game-meta time {
+  justify-self: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.next-game-meta em {
+  justify-self: end;
+}
+
+.next-game-label b {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--primary);
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.game-banner-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.game-banner-teams b {
+  color: #334155;
+  font-size: 11px;
+}
+
+.game-banner-teams strong {
+  color: #0f172a;
+  font-size: 21px;
+  font-weight: 950;
+}
+
+.section-block {
+  margin-top: 18px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.section-title-row h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.section-title-row a {
+  color: #8b929e;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.series-week-grid {
+  padding: 10px;
+  border: 1px solid #edf0f4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.week-strip,
+.week-series-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.week-day {
+  position: relative;
+  min-height: 60px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 7px 2px 6px;
+  background: #f8fafc;
+}
+
+.week-day span {
+  color: #808691;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.week-day strong {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.week-day b {
+  min-width: 17px;
+  height: 15px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  padding: 0 4px;
+  color: #fff;
+  background: #2563eb;
+  font-size: 9px;
+  font-weight: 950;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.week-day-active {
+  color: #fff;
+  background: var(--primary);
+}
+
+.week-day-active span {
+  color: #fff;
+}
+
+.week-day-active b {
+  color: var(--primary);
+  background: #fff;
+}
+
+.week-series-row {
+  position: relative;
+  margin-top: 8px;
+  min-height: 30px;
+  gap: 0;
+}
+
+.week-series-pill {
+  min-width: 0;
+  height: 30px;
+  border: 1px solid color-mix(in srgb, var(--series-color) 18%, #ffffff);
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--series-accent);
+  background: color-mix(in srgb, var(--series-color) 12%, #ffffff);
+  font-size: 12px;
+  font-weight: 950;
+  white-space: nowrap;
+  box-shadow: inset 0 -1px 0 rgba(15, 23, 42, 0.04);
+}
+
+.rank-section {
+  padding-bottom: 2px;
+}
+
+.recent-attendance-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #edf0f4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.recent-attendance-card .section-title-row {
+  margin-bottom: 10px;
+}
+
+.recent-attendance-title {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.recent-attendance-card p {
+  margin: 0;
+  color: #7b8290;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.recent-attendance-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.recent-attendance-row {
+  min-height: 76px;
+  display: grid;
+  grid-template-rows: auto auto auto 22px;
+  justify-items: center;
+  align-content: center;
+  gap: 1px;
+  padding: 6px 4px;
+  border-radius: 12px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.recent-attendance-row strong {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.18;
+  font-weight: 950;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-attendance-row strong b {
+  margin-left: 3px;
+  color: #111827;
+  font-weight: 950;
+}
+
+.recent-attendance-row span {
+  color: #7b8290;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.recent-result {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 950;
+}
+
+.recent-result-win {
+  color: #fff;
+  background: #16a34a;
+}
+
+.recent-result-lose {
+  color: #fff;
+  background: #dc2626;
+}
+
+.recent-result-draw,
+.recent-result-pending {
+  color: #4b5563;
+  background: #e5e7eb;
+}
+
+.rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #edf0f4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.rank-row {
+  display: grid;
+  grid-template-columns: 24px 28px minmax(48px, 1fr) auto 44px;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-bottom: 1px solid #f1f2f5;
+  font-size: 13px;
+}
+
+.rank-row:last-child {
+  border-bottom: 0;
+}
+
+.rank-row-highlighted {
+  background: #fff2ec;
+}
+
+.rank-num,
+.rank-record {
+  color: #606774;
+  font-weight: 800;
+}
+
+.rank-team,
+.rank-row strong {
+  font-weight: 900;
+}
+
+.team-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.team-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  box-shadow: 0 5px 12px rgba(15, 23, 42, 0.16);
+  font-weight: 950;
+  font-size: 12px;
+  line-height: 1;
+  overflow: hidden;
+  text-align: center;
+}
+
+.team-badge-initial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  line-height: 1;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .team-badge-initial {
+    transform: translateY(1px);
+  }
+}
+
+.team-badge-sm {
+  width: 26px;
+  height: 26px;
+}
+
+.team-badge-md {
+  width: 38px;
+  height: 38px;
+  font-size: 14px;
+}
+
+.team-badge-lg {
+  width: 58px;
+  height: 58px;
+  font-size: 20px;
+}
+
+.team-badge-name {
+  font-weight: 850;
+}
+

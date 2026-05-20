@@ -1,0 +1,463 @@
+﻿/* ============================================================
+ * Rankings page — dark theme
+ * ============================================================ */
+.phone-frame-dark .rankings-card {
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 16px 14px 12px;
+}
+
+.phone-frame-dark .rankings-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 4px;
+}
+
+.phone-frame-dark .rankings-title h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.4px;
+}
+
+.phone-frame-dark .rankings-refresh {
+  height: 32px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 106, 43, 0.5);
+  background: rgba(255, 106, 43, 0.14);
+  color: var(--hd-accent-orange);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.phone-frame-dark .rankings-refresh:hover:not(:disabled) {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+.phone-frame-dark .rankings-refresh:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.rankings-refresh-spin {
+  animation: rankings-refresh-spin 0.8s linear infinite;
+}
+
+@keyframes rankings-refresh-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ranking table */
+.phone-frame-dark .ranking-table {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.phone-frame-dark .ranking-table-head {
+  display: grid;
+  grid-template-columns: 32px 1fr 50px 38px 70px 64px;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 6px;
+  background: transparent;
+  border-bottom: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.phone-frame-dark .ranking-table-head > span {
+  text-align: center;
+}
+
+.phone-frame-dark .ranking-table-body {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-frame-dark .ranking-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 50px 38px 70px 64px;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 0;
+  background: transparent;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .ranking-row:last-child {
+  border-bottom: 0;
+}
+
+.phone-frame-dark .ranking-row-highlighted {
+  background: rgba(255, 106, 43, 0.08);
+  border: 1px solid rgba(255, 106, 43, 0.55);
+  border-radius: 8px;
+  margin: 4px 0;
+  box-shadow: 0 0 14px rgba(255, 106, 43, 0.2);
+}
+
+.phone-frame-dark .ranking-rank {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .ranking-row-highlighted .ranking-rank {
+  color: var(--hd-accent-orange);
+}
+
+.phone-frame-dark .ranking-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 4px;
+  min-width: 0;
+}
+
+.phone-frame-dark .ranking-team .team-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .ranking-team strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  white-space: nowrap;
+}
+
+.phone-frame-dark .ranking-rate,
+.phone-frame-dark .ranking-gap,
+.phone-frame-dark .ranking-record {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.phone-frame-dark .ranking-gap {
+  color: var(--hd-text-secondary);
+}
+
+.phone-frame-dark .ranking-form {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.phone-frame-dark .ranking-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.phone-frame-dark .ranking-dot-w {
+  background: #1f9a55;
+}
+
+.phone-frame-dark .ranking-dot-l {
+  background: #b8323c;
+}
+
+.phone-frame-dark .ranking-dot-d {
+  background: var(--hd-text-muted);
+}
+
+/* ============================================================
+ * Anonymous user — guards & upgrade CTA
+ * ============================================================ */
+
+/* 마이 hero 안 익명 전환 CTA */
+.phone-frame-dark .profile-card .profile-anon-cta {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 106, 43, 0.14);
+  border: 1px solid rgba(255, 106, 43, 0.5);
+  border-radius: 999px;
+  color: var(--hd-accent-orange);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.1px;
+  align-self: center;
+}
+
+.phone-frame-dark .profile-card .profile-anon-cta:hover {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+/* 익명 가드 페이지의 전환 CTA 버튼 (친구 관리 등) */
+.phone-frame-dark .upgrade-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 22px;
+  border-radius: 12px;
+  background: var(--hd-accent-orange);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(255, 106, 43, 0.32);
+}
+
+.phone-frame-dark .upgrade-cta:hover {
+  filter: brightness(1.05);
+}
+
+/* 후기 작성 모달 - 공개범위 disabled */
+.phone-frame-dark .review-modal-panel .privacy-row button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.phone-frame-dark .review-modal-panel .privacy-row button:disabled::after {
+  content: "🔒";
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 9px;
+}
+
+/* 랜딩 익명 안내문 */
+.landing-anon-hint {
+  margin: 14px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+  text-align: center;
+}
+
+/* 랜딩 - 비로그인 시작 confirm 모달 */
+.landing-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 10, 20, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  animation: landing-fade-in 0.18s ease;
+}
+
+@keyframes landing-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.landing-confirm-panel {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 28px 22px 22px;
+  background: #0d1a30;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  color: #f7f9fc;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.landing-confirm-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: rgba(247, 249, 252, 0.6);
+  cursor: pointer;
+}
+
+.landing-confirm-close:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.landing-confirm-panel h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+}
+
+.landing-confirm-lede {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(247, 249, 252, 0.7);
+}
+
+.landing-confirm-list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.landing-confirm-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.landing-confirm-list li > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.landing-confirm-list strong {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.landing-confirm-list span {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(247, 249, 252, 0.55);
+  line-height: 1.5;
+}
+
+.landing-confirm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 106, 43, 0.16);
+  color: #ff6a2b;
+  flex-shrink: 0;
+}
+
+.landing-confirm-note {
+  margin: 0 0 18px;
+  padding: 10px 12px;
+  background: rgba(36, 194, 106, 0.1);
+  border: 1px solid rgba(36, 194, 106, 0.3);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(247, 249, 252, 0.8);
+  text-align: center;
+}
+
+.landing-confirm-note b {
+  color: #4cd185;
+  font-weight: 800;
+}
+
+.landing-confirm-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.landing-confirm-cancel {
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.landing-confirm-cancel:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.landing-confirm-start {
+  height: 46px;
+  border: 0;
+  background: #ff6a2b;
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 8px 22px rgba(255, 106, 43, 0.3);
+}
+
+.landing-confirm-start:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.landing-confirm-cancel:disabled,
+.landing-confirm-start:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.landing-confirm-altlink {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(247, 249, 252, 0.5);
+  text-decoration: none;
+}
+
+.landing-confirm-altlink:hover {
+  color: #ff6a2b;
+}
+

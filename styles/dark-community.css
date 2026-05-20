@@ -1,0 +1,500 @@
+﻿/* ============================================================
+ * Community page — dark theme
+ * ============================================================ */
+.phone-frame-dark .community-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0 4px;
+  margin-bottom: 4px;
+}
+
+.phone-frame-dark .filter-chips {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.phone-frame-dark .filter-chips .chip {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--hd-border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hd-text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.phone-frame-dark .filter-chips .chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .filter-chips .chip-active {
+  background: var(--hd-accent-orange);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.phone-frame-dark .community-write-button {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--hd-accent-orange);
+  border: 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 106, 43, 0.24);
+}
+
+.phone-frame-dark .community-write-button:hover {
+  filter: brightness(1.05);
+}
+
+.phone-frame-dark .community-sort {
+  position: relative;
+  display: inline-flex;
+  margin-left: 2px;
+}
+
+.phone-frame-dark .community-sort-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--hd-border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hd-text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.phone-frame-dark .community-sort-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .community-sort-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 140px;
+  background: #122340;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 20;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+.phone-frame-dark .community-sort-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 12px;
+  background: transparent;
+  border: 0;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.phone-frame-dark .community-sort-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.phone-frame-dark .community-sort-item-active {
+  color: var(--hd-accent-orange);
+}
+
+/* Review feed */
+.phone-frame-dark .review-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.phone-frame-dark .review-card {
+  background: var(--hd-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .review-card .review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.phone-frame-dark .review-card .review-author > div:first-of-type,
+.phone-frame-dark .review-card .review-author > .review-author-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.phone-frame-dark .review-card .review-author-action {
+  display: inline-flex;
+  align-items: center;
+}
+
+.phone-frame-dark .owner-action-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone-frame-dark .owned-delete-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 90, 100, 0.55);
+  background: rgba(255, 90, 100, 0.1);
+  color: var(--hd-danger);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phone-frame-dark .owned-delete-chip:hover {
+  background: rgba(255, 90, 100, 0.18);
+}
+
+.phone-frame-dark .owned-edit-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 106, 43, 0.55);
+  background: rgba(255, 106, 43, 0.12);
+  color: var(--hd-accent-orange);
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phone-frame-dark .owned-edit-chip:hover {
+  background: rgba(255, 106, 43, 0.22);
+}
+
+.phone-frame-dark .review-card .review-avatar {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff7e3a, #ff5a64);
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .review-card .review-avatar-image {
+  background: #1a2640;
+}
+
+.phone-frame-dark .review-card .review-avatar-image img {
+  border-radius: 50%;
+}
+
+.phone-frame-dark .review-card .review-avatar-initial {
+  background: linear-gradient(135deg, #2c3a5c, #1a2640);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hd-text-primary);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.phone-frame-dark .review-card .review-author > div,
+.phone-frame-dark .review-card .review-author > .review-author-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  align-items: flex-start; /* button 기본 가운데 정렬 → 좌측 정렬 (텍스트 줄바꿈 일관성) */
+  text-align: left;
+}
+
+.phone-frame-dark .review-card .review-author strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+}
+
+.phone-frame-dark .review-card .review-author span {
+  font-size: 11px;
+  color: var(--hd-text-muted);
+  font-weight: 600;
+}
+
+.phone-frame-dark .review-image-link {
+  position: relative;
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.phone-frame-dark .review-image-link .review-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.phone-frame-dark .review-image-link span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.phone-frame-dark .review-card .review-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  text-decoration: none;
+  margin: 2px 0 0;
+  letter-spacing: -0.2px;
+}
+
+/* Game meta row between image and body */
+.phone-frame-dark .review-game-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hd-border-soft);
+  border-radius: 10px;
+}
+
+.phone-frame-dark .review-game-meta-date {
+  justify-self: start;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--hd-text-secondary);
+  letter-spacing: -0.1px;
+}
+
+.phone-frame-dark .review-game-meta-match {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.phone-frame-dark .review-game-meta-match .review-game-meta-side {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* 양쪽 사이드의 콘텐츠를 score 쪽으로 붙여 콜론이 컨테이너 정중앙에 오도록 */
+.phone-frame-dark .review-game-meta-match .review-game-meta-side-home {
+  justify-content: flex-end;
+}
+
+.phone-frame-dark .review-game-meta-match .review-game-meta-side-away {
+  justify-content: flex-start;
+}
+
+.phone-frame-dark .review-game-meta-match .team-badge {
+  width: 18px;
+  height: 18px;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+
+.phone-frame-dark .review-game-meta-match strong {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+}
+
+.phone-frame-dark .review-game-meta-match b {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--hd-text-primary);
+  letter-spacing: -0.2px;
+  margin: 0 2px;
+}
+
+.phone-frame-dark .review-game-meta-result {
+  grid-column: 3;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.phone-frame-dark .review-game-meta-result-win { background: #1f9a55; }
+.phone-frame-dark .review-game-meta-result-lose { background: #b8323c; }
+.phone-frame-dark .review-game-meta-result-draw { background: #4a5160; }
+
+.phone-frame-dark .review-card .review-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--hd-text-secondary);
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.phone-frame-dark .review-card .review-body-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.phone-frame-dark .review-card .review-body-toggle {
+  align-self: flex-start;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin-top: -4px;
+  color: var(--hd-accent-orange);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phone-frame-dark .review-card .review-body-toggle:hover {
+  text-decoration: underline;
+}
+
+.phone-frame-dark .review-card .review-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.phone-frame-dark .review-card .review-tags span {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--hd-border-soft);
+  color: var(--hd-text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.phone-frame-dark .review-card .review-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--hd-border-soft);
+}
+
+.phone-frame-dark .review-card .review-actions button,
+.phone-frame-dark .review-card .review-actions span,
+.phone-frame-dark .review-card .review-actions a {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: var(--hd-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* 북마크(마지막 자식)는 flex 흐름에서 빼서 우측 고정. 나머지 좋아요/댓글/공유는
+   부모의 justify-content: center 로 완전 중앙 정렬.
+   margin-top: 4px 는 부모의 padding-top: 8px 의 절반 — 다른 아이콘과 수직 정렬 보정. */
+.phone-frame-dark .review-card .review-actions > :last-child {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: 4px;
+  transform: translateY(-50%);
+}
+
+.phone-frame-dark .empty-inline {
+  text-align: center;
+  color: var(--hd-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 24px 0;
+}
+
+.phone-frame-dark .feed-sentinel {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-frame-dark .feed-loading {
+  color: var(--hd-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
