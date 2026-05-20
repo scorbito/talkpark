@@ -19,7 +19,7 @@ type AppShellProps = {
 
 export function AppShell({
   activeTab = "home",
-  title = "오늘은 승요",
+  title = "톡구장",
   showBeta = false,
   theme = "default",
   headerAction,
@@ -29,7 +29,7 @@ export function AppShell({
 }: AppShellProps) {
   return (
     <main className="app-backdrop">
-      <section className={`phone-frame${theme === "dark" ? " phone-frame-dark" : ""}`} aria-label="오늘은 승요 앱 화면">
+      <section className={`phone-frame${theme === "dark" ? " phone-frame-dark" : ""}`} aria-label="톡구장 앱 화면">
         <div className="app-scroll">
           {hideHeader ? null : (
             <header className="app-header">

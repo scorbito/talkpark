@@ -39,30 +39,27 @@ import "@/styles/dark-install.css";
 import "@/styles/dark-profile-popover.css";
 import "@/styles/dark-season-level.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://oneul-seungyo.vercel.app";
-const SITE_TITLE = "오늘은 승요";
-const SITE_DESCRIPTION = "오늘은 승요앱에서 KBO 직관 승률을 기록하고 친구와 후기를 공유하세요. 두산·LG·기아·삼성 등 10팀 일정 자동 연동, 티켓 사진으로 직관 자동 인증.";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://talkpark.vercel.app";
+const SITE_TITLE = "톡구장";
+const SITE_DESCRIPTION = "톡구장에서 KBO 실시간 경기톡을 나누고 야구팬 친구들과 소통하세요. 10개 구단 경기 일정 및 실시간 채팅 지원.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_TITLE} - KBO 직관 기록 앱`,
+    default: `${SITE_TITLE} - KBO 실시간 경기톡 & 커뮤니티`,
     template: `%s | ${SITE_TITLE}`
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "오늘은 승요",
-    "오늘은 승요 앱",
-    "오늘은 승요앱",
-    "KBO 직관",
-    "야구 직관 기록",
-    "야구 직관 앱",
-    "KBO 승률",
-    "프로야구 후기",
-    "티켓 인증",
+    "톡구장",
+    "톡구장 앱",
+    "talkpark",
+    "KBO 경기톡",
+    "야구 실시간 채팅",
+    "프로야구 커뮤니티",
     "야구팬 커뮤니티"
   ],
-  authors: [{ name: "오늘은 승요" }],
+  authors: [{ name: "톡구장" }],
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -82,20 +79,20 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: SITE_URL,
     siteName: SITE_TITLE,
-    title: `${SITE_TITLE} - KBO 직관 기록 앱`,
+    title: `${SITE_TITLE} - KBO 실시간 경기톡 & 커뮤니티`,
     description: SITE_DESCRIPTION,
     images: [
       {
         url: "/assets/mainherobg.png",
         width: 1448,
         height: 1086,
-        alt: "오늘은 승요 - 직관 승률을 기록하는 야구팬 앱"
+        alt: "톡구장 - 야구팬 실시간 경기톡 커뮤니티"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_TITLE} - KBO 직관 기록 앱`,
+    title: `${SITE_TITLE} - KBO 실시간 경기톡 & 커뮤니티`,
     description: SITE_DESCRIPTION,
     images: ["/assets/mainherobg.png"]
   },
@@ -147,7 +144,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <div className="initial-loader-mascot" />
             <div className="initial-loader-shadow" aria-hidden="true" />
           </div>
-          <span className="initial-loader-text">오늘은 승요</span>
+          <span className="initial-loader-text">톡구장</span>
           <span className="initial-loader-dots" aria-hidden="true">
             <span className="initial-loader-dot" />
             <span className="initial-loader-dot" />

@@ -31,10 +31,10 @@ export default function LandingPage() {
       <section className="landing-copy">
         <div className="landing-mark">
           <Trophy size={18} />
-          오늘은 승요
+          톡구장
         </div>
         <h1>내 직관 승률을 기록하고 공유하세요!</h1>
-        <p>야구팬을 위한 오늘은 승요앱, 직관 기록 & 커뮤니티</p>
+        <p>야구팬을 위한 톡구장앱, 직관 기록 & 커뮤니티</p>
         <div className="landing-actions">
           <Button onClick={() => setConfirmOpen(true)}>비로그인으로 시작하기</Button>
           <Link href="/login" prefetch>

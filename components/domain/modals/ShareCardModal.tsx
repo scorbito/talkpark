@@ -36,7 +36,7 @@ export function ShareCardModal({ open, onClose, profile }: ShareCardModalProps) 
   const shareCard = async () => {
     if (!shareCardRef.current || isSharing) return;
     const team = getTeam(profile.mainTeamId);
-    const text = `내 직관 승률 ${profile.winRate}\n${profile.wins}승 ${profile.losses}패 ${profile.draws}무 (${team.name} 응원)\n\n오늘은 승요`;
+    const text = `내 직관 승률 ${profile.winRate}\n${profile.wins}승 ${profile.losses}패 ${profile.draws}무 (${team.name} 응원)\n\n톡구장`;
     const url = typeof window !== "undefined" ? window.location.origin : "";
     const filename = `oneul-seungyo-${profile.winRate.replace(".", "")}.png`;
 
@@ -194,7 +194,7 @@ export function ShareCardModal({ open, onClose, profile }: ShareCardModalProps) 
       ctx.shadowColor = "rgba(0, 0, 0, 0.4)";
       ctx.shadowBlur = 8;
       ctx.shadowOffsetY = 2;
-      const brandText = "오늘은 승요";
+      const brandText = "톡구장";
       const brandTextWidth = ctx.measureText(brandText).width;
       const ballSize = 38;
       const brandGap = 10;
@@ -256,7 +256,7 @@ export function ShareCardModal({ open, onClose, profile }: ShareCardModalProps) 
         try {
           await navigator.share({
             files: [file],
-            title: "오늘은 승요",
+            title: "톡구장",
             text: `${text}\n${url}`
           });
           setShareStatus("공유했어요!");
@@ -416,7 +416,7 @@ export function ShareCardModal({ open, onClose, profile }: ShareCardModalProps) 
               textShadow: "0 2px 8px rgba(0, 0, 0, 0.4)"
             }}
           >
-            오늘은 승요
+            톡구장
             <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" xmlns="http://www.w3.org/2000/svg" style={{ display: "inline-block" }}>
               <circle cx="12" cy="12" r="10" fill="#ffffff" stroke="#1a2640" strokeWidth="0.5" />
               <path d="M5 6 Q9 9 9.5 12 Q10 15 5.5 18" stroke="#ff2a2a" strokeWidth="1.2" fill="none" strokeLinecap="round" />

@@ -35,7 +35,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
                 <ArrowLeft size={20} />
               </Link>
             ) : <span />}
-            <Link className="brand" href={upgradeMode ? "/" : "/landing"} prefetch>오늘은 승요</Link>
+            <Link className="brand" href={upgradeMode ? "/" : "/landing"} prefetch>톡구장</Link>
             <span />
           </header>
           <div className="login-bg-area" aria-hidden="true" />

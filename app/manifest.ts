@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "오늘은 승요",
-    short_name: "승요",
-    description: "KBO 직관 기록, 승률 통계, 커뮤니티 웹앱",
+    name: "톡구장",
+    short_name: "톡구장",
+    description: "KBO 실시간 경기톡 및 야구팬 커뮤니티 웹앱",
     start_url: "/",
     display: "standalone",
     orientation: "portrait",
